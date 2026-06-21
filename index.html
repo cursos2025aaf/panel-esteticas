@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAGENTES.TECH — Panel Estéticas y Peluquerías</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0A2540;
+  --verde:#16a34a;
+  --verde-light:#dcfce7;
+  --verde-dark:#15803d;
+  --amarillo:#f59e0b;
+  --rojo:#dc2626;
+  --rosa:#db2777;
+  --gris:#64748b;
+  --bg:#f8fafc;
+  --white:#ffffff;
+  --border:#e2e8f0;
+  --text:#0f172a;
+  --text-soft:#475569;
+  --text-muted:#94a3b8;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* ── LAYOUT PRINCIPAL ── */
+.app-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
+
+/* ── SIDEBAR ── */
+.sidebar{background:var(--navy);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:20px 18px 16px;border-bottom:1px solid rgba(255,255,255,.1);}
+.logo-text{font-size:1.1rem;font-weight:900;line-height:1;}
+.logo-text .li{color:#3B82F6;font-style:italic;}
+.logo-text .la{color:#fff;}
+.logo-text .lt{color:#3B82F6;}
+.logo-tag{background:var(--rosa);color:#fff;font-size:.5rem;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.5px;display:inline-block;margin-top:6px;}
+.sidebar-fecha{padding:12px 18px;font-size:.62rem;color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.08);}
+.sidebar-kpis{padding:14px 18px;display:flex;flex-direction:column;gap:10px;}
+.kpi-item{background:rgba(255,255,255,.06);border-radius:8px;padding:10px 12px;border-left:3px solid var(--verde);}
+.kpi-item.amarillo{border-left-color:var(--amarillo);}
+.kpi-item.rojo{border-left-color:var(--rojo);}
+.kpi-item.rosa{border-left-color:var(--rosa);}
+.kpi-num{font-size:1.6rem;font-weight:800;color:#fff;line-height:1;}
+.kpi-lbl{font-size:.58rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+.kpi-sub{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:1px;}
+.sidebar-nav{padding:14px 10px;margin-top:auto;border-top:1px solid rgba(255,255,255,.08);}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;}
+.nav-item:hover{background:rgba(255,255,255,.08);color:#fff;}
+.nav-item.active{background:var(--rosa);color:#fff;}
+
+/* ── CONTENIDO PRINCIPAL ── */
+.main-content{padding:20px 24px;overflow-y:auto;}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.page-title{font-size:1.1rem;font-weight:800;color:var(--text);}
+.page-sub{font-size:.72rem;color:var(--text-muted);margin-top:2px;}
+.btn-primary{background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.75rem;font-weight:700;cursor:pointer;transition:background .15s;}
+.btn-primary:hover{background:#be185d;}
+
+/* ── SECCIÓN TITLE ── */
+.stitle{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px;}
+.stitle::after{content:'';flex:1;height:1px;background:var(--border);}
+.stitle:first-child{margin-top:0;}
+
+/* ── AGENDA / TURNOS ── */
+.turnos-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
+.turno-item{display:grid;grid-template-columns:70px 2fr 1.2fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.turno-item:last-child{border-bottom:none;}
+.turno-item:hover{background:#f8fafc;}
+.turno-item-header{display:grid;grid-template-columns:70px 2fr 1.2fr 1fr 90px;gap:10px;padding:8px 16px;background:#f8fafc;border-bottom:1px solid var(--border);}
+.turno-th{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);}
+.turno-hora{font-size:.85rem;font-weight:800;color:var(--rosa);}
+.turno-clienta{font-size:.78rem;font-weight:700;color:var(--text);}
+.turno-prof{font-size:.62rem;color:var(--text-muted);margin-top:1px;}
+.turno-servicio{font-size:.72rem;color:var(--text-soft);}
+
+/* ── BADGES ESTADO ── */
+.badge{display:inline-block;font-size:.55rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:.4px;text-transform:uppercase;}
+.b-confirmado{background:#dcfce7;color:#15803d;}
+.b-pendiente{background:#fef9c3;color:#854d0e;}
+.b-cancelado{background:#fee2e2;color:#dc2626;}
+.b-completado{background:#dbeafe;color:#1d4ed8;}
+
+/* ── DOS COLUMNAS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+/* ── CLIENTAS ── */
+.clientas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.clienta-card{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s;border:1px solid var(--border);}
+.clienta-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+.clienta-top{display:flex;align-items:center;gap:10px;}
+.clienta-avatar{width:36px;height:36px;border-radius:50%;background:var(--rosa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;}
+.clienta-nombre{font-size:.8rem;font-weight:700;color:var(--text);}
+.clienta-tel{font-size:.62rem;color:var(--text-muted);}
+.clienta-body{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.clienta-row{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-top:4px;}
+.clienta-row span{font-weight:700;color:var(--text);}
+
+/* ── SERVICIOS ── */
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.servicio-card{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;border:1px solid var(--border);transition:transform .15s,box-shadow .15s;}
+.servicio-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+.servicio-cat{font-size:.55rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:4px;display:inline-block;}
+.sc-corte{background:#dbeafe;color:#1d4ed8;}
+.sc-color{background:#fce7f3;color:#9d174d;}
+.sc-tratamiento{background:#f0fdf4;color:#15803d;}
+.sc-manicura{background:#fef9c3;color:#854d0e;}
+.sc-peinado{background:#ede9fe;color:#6d28d9;}
+.servicio-nombre{font-size:.82rem;font-weight:700;color:var(--text);margin-top:8px;}
+.servicio-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+.servicio-precio{font-size:1rem;font-weight:800;color:var(--verde-dark);}
+.servicio-dur{font-size:.62rem;color:var(--text-muted);}
+
+/* ── PROFESIONALES ── */
+.prof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.prof-card{background:var(--white);border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid var(--border);display:flex;align-items:center;gap:12px;cursor:pointer;}
+.prof-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0;}
+.prof-info{flex:1;}
+.prof-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
+.prof-esp{font-size:.62rem;color:var(--text-muted);}
+.prof-num{font-size:1.2rem;font-weight:800;color:var(--rosa);}
+
+/* ── STOCK ── */
+.stock-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
+.stock-item{display:grid;grid-template-columns:2fr 1fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.stock-item:hover{background:#f8fafc;}
+.stock-item:last-child{border-bottom:none;}
+.stock-item-header{display:grid;grid-template-columns:2fr 1fr 1fr 90px;gap:10px;padding:8px 16px;background:#f8fafc;border-bottom:1px solid var(--border);}
+.stock-th{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);}
+.stock-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
+.stock-cat{font-size:.62rem;color:var(--text-muted);}
+.stock-cant{font-size:.75rem;font-weight:700;text-align:center;}
+
+/* ── ALERTAS ── */
+.alertas-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
+.alerta-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.alerta-item:last-child{border-bottom:none;}
+.alerta-item:hover{background:#f8fafc;}
+.alerta-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.ai-critico{background:#fee2e2;}
+.ai-atencion{background:#fef9c3;}
+.ai-info{background:#dbeafe;}
+.alerta-content{flex:1;}
+.alerta-text{font-size:.75rem;font-weight:700;color:var(--text);}
+.alerta-meta{font-size:.62rem;color:var(--text-muted);margin-top:2px;line-height:1.4;}
+.alerta-nivel{font-size:.55rem;font-weight:800;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+.an-critico{background:#fee2e2;color:#dc2626;}
+.an-atencion{background:#fef9c3;color:#854d0e;}
+.an-info{background:#dbeafe;color:#1d4ed8;}
+
+/* ── BOTONES ── */
+.btn-add{background:var(--bg);border:1px dashed #cbd5e1;border-radius:6px;padding:5px 12px;font-size:.72rem;font-weight:600;color:var(--gris);cursor:pointer;transition:background .15s;}
+.btn-add:hover{background:var(--border);}
+
+/* ── MODAL ── */
+.moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:20px;}
+.moverlay.open{display:flex;}
+.modal{background:#fff;border-radius:16px;padding:24px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto;}
+.modal h3{font-size:1rem;font-weight:700;margin-bottom:14px;color:var(--text);}
+.modal label{font-size:.72rem;font-weight:700;color:var(--gris);display:block;margin-bottom:4px;margin-top:12px;}
+.modal input,.modal select,.modal textarea{width:100%;font-size:.82rem;border:1px solid var(--border);border-radius:8px;padding:8px 12px;outline:none;color:var(--text);background:#fff;}
+.modal input:focus,.modal select:focus{border-color:var(--rosa);}
+.mactions{display:flex;gap:8px;margin-top:18px;}
+.mbtn-save{flex:1;background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:10px;font-size:.82rem;font-weight:700;cursor:pointer;}
+.mbtn-save:hover{background:#be185d;}
+.mbtn-cancel{background:#f1f5f9;color:var(--gris);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
+.mbtn-del{background:#fee2e2;color:var(--rojo);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.app-layout{grid-template-columns:1fr;}.sidebar{height:auto;position:relative;}.sidebar-kpis{flex-direction:row;flex-wrap:wrap;}.kpi-item{flex:1;min-width:120px;}.prof-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.clientas-grid,.servicios-grid{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.turno-item,.turno-item-header{grid-template-columns:1fr 1fr;}.stock-item,.stock-item-header{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text"><span class="li">i</span><span class="la">AGENTES</span><span class="lt">.TECH</span></div>
+      <div class="logo-tag">💇 PANEL ESTÉTICAS</div>
+    </div>
+    <div class="sidebar-fecha" id="fechaSidebar"></div>
+    <div class="sidebar-kpis" id="sidebarKpis"></div>
+    <div class="sidebar-nav">
+      <div class="nav-item active" onclick="navTo('secAgenda',this)">📅 Agenda</div>
+      <div class="nav-item" onclick="navTo('secClientas',this)">👤 Clientas</div>
+      <div class="nav-item" onclick="navTo('secServicios',this)">✂️ Servicios</div>
+      <div class="nav-item" onclick="navTo('secProfesionales',this)">👥 Profesionales</div>
+      <div class="nav-item" onclick="navTo('secStock',this)">🧴 Stock</div>
+      <div class="nav-item" onclick="navTo('secAlertas',this)">🔔 Alertas</div>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">Agenda del día</div>
+        <div class="page-sub">Gestión de turnos, clientas, servicios y stock</div>
+      </div>
+      <button class="btn-primary" onclick="abrirModalTurno(-1)">+ Nuevo turno</button>
+    </div>
+
+    <!-- AGENDA -->
+    <div id="secAgenda">
+      <div class="stitle">Turnos de hoy</div>
+      <div class="turnos-wrap">
+        <div class="turno-item-header">
+          <div class="turno-th">Hora</div>
+          <div class="turno-th">Clienta</div>
+          <div class="turno-th">Servicio</div>
+          <div class="turno-th">Profesional</div>
+          <div class="turno-th" style="text-align:center;">Estado</div>
+        </div>
+        <div id="turnosList"></div>
+      </div>
+    </div>
+
+    <!-- CLIENTAS -->
+    <div id="secClientas">
+      <div class="stitle" style="margin-top:24px;">Clientas</div>
+      <div class="clientas-grid" id="clientasGrid"></div>
+      <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalClienta(-1)">+ Nueva clienta</button></div>
+    </div>
+
+    <!-- DOS COLUMNAS: SERVICIOS / PROFESIONALES -->
+    <div class="two-col">
+      <div id="secServicios">
+        <div class="stitle" style="margin-top:24px;">Servicios y tratamientos</div>
+        <div class="servicios-grid" id="serviciosGrid"></div>
+        <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalServicio(-1)">+ Nuevo servicio</button></div>
+      </div>
+      <div id="secProfesionales">
+        <div class="stitle" style="margin-top:24px;">Profesionales — turnos de hoy</div>
+        <div class="prof-grid" id="profGrid"></div>
+      </div>
+    </div>
+
+    <!-- STOCK -->
+    <div id="secStock">
+      <div class="stitle" style="margin-top:24px;">Stock de productos</div>
+      <div class="stock-wrap">
+        <div class="stock-item-header">
+          <div class="stock-th">Producto</div>
+          <div class="stock-th" style="text-align:center;">Cantidad</div>
+          <div class="stock-th" style="text-align:center;">Mínimo</div>
+          <div class="stock-th" style="text-align:center;">Estado</div>
+        </div>
+        <div id="stockList"></div>
+      </div>
+      <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalStock(-1)">+ Nuevo producto</button></div>
+    </div>
+
+    <!-- ALERTAS -->
+    <div id="secAlertas">
+      <div class="stitle" style="margin-top:24px;">Alertas</div>
+      <div class="alertas-wrap" id="alertasWrap"></div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL TURNO -->
+<div class="moverlay" id="modalTurno">
+  <div class="modal">
+    <h3 id="modalTurnoTitulo">Turno</h3>
+    <label>Hora</label><input type="time" id="t-hora">
+    <label>Clienta</label><input type="text" id="t-clienta" placeholder="Nombre de la clienta">
+    <label>Servicio</label><input type="text" id="t-servicio" placeholder="Ej: Corte + color">
+    <label>Profesional</label><input type="text" id="t-prof" placeholder="Ej: Valentina">
+    <label>Estado</label>
+    <select id="t-estado">
+      <option value="Confirmado">Confirmado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Completado">Completado</option>
+      <option value="Cancelado">Cancelado</option>
+    </select>
+    <div class="mactions">
+      <button class="mbtn-save" id="turnoSaveBtn">Guardar</button>
+      <button class="mbtn-del" id="turnoDelBtn" style="display:none">Eliminar</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalTurno')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CLIENTA -->
+<div class="moverlay" id="modalClienta">
+  <div class="modal">
+    <h3 id="modalClientaTitulo">Clienta</h3>
+    <label>Nombre</label><input type="text" id="c-nombre" placeholder="Nombre y apellido">
+    <label>Teléfono</label><input type="text" id="c-tel" placeholder="Ej: 11-4555-2233">
+    <label>Último servicio</label><input type="text" id="c-ultimo" placeholder="Ej: Corte + brushing">
+    <label>Próximo turno</label><input type="date" id="c-proximo">
+    <label>Total visitas</label><input type="number" id="c-visitas" min="0" placeholder="0">
+    <div class="mactions">
+      <button class="mbtn-save" id="clientaSaveBtn">Guardar</button>
+      <button class="mbtn-del" id="clientaDelBtn" style="display:none">Eliminar</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalClienta')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SERVICIO -->
+<div class="moverlay" id="modalServicio">
+  <div class="modal">
+    <h3 id="modalServicioTitulo">Servicio</h3>
+    <label>Nombre</label><input type="text" id="s-nombre" placeholder="Ej: Color + brushing">
+    <label>Categoría</label>
+    <select id="s-cat">
+      <option value="Corte">Corte</option>
+      <option value="Color">Color</option>
+      <option value="Tratamiento">Tratamiento</option>
+      <option value="Manicura">Manicura</option>
+      <option value="Peinado">Peinado</option>
+    </select>
+    <label>Precio</label><input type="text" id="s-precio" placeholder="Ej: $18.000">
+    <label>Duración</label><input type="text" id="s-dur" placeholder="Ej: 90 min">
+    <div class="mactions">
+      <button class="mbtn-save" id="servicioSaveBtn">Guardar</button>
+      <button class="mbtn-del" id="servicioDelBtn" style="display:none">Eliminar</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalServicio')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL STOCK -->
+<div class="moverlay" id="modalStock">
+  <div class="modal">
+    <h3 id="modalStockTitulo">Producto</h3>
+    <label>Nombre</label><input type="text" id="st-nombre" placeholder="Ej: Tintura rubio ceniza">
+    <label>Categoría</label><input type="text" id="st-cat" placeholder="Ej: Coloración">
+    <label>Cantidad actual</label><input type="number" id="st-cant" min="0" placeholder="0">
+    <label>Cantidad mínima</label><input type="number" id="st-min" min="0" placeholder="0">
+    <div class="mactions">
+      <button class="mbtn-save" id="stockSaveBtn">Guardar</button>
+      <button class="mbtn-del" id="stockDelBtn" style="display:none">Eliminar</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalStock')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── FECHA ───────────────────────────────────────────────
+const DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const N=new Date();
+document.getElementById('fechaSidebar').textContent=DIAS[N.getDay()]+' '+N.getDate()+' de '+MES[N.getMonth()];
+
+// ── STORAGE ────────────────────────────────────────────
+function sto(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function gto(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ── DATOS INICIALES ────────────────────────────────────
+const D_TURNOS=[
+  {hora:'09:00',clienta:'Mariana Soto',servicio:'Corte + brushing',prof:'Valentina',estado:'Confirmado'},
+  {hora:'10:00',clienta:'Lucía Fernández',servicio:'Color + tratamiento',prof:'Camila',estado:'Confirmado'},
+  {hora:'11:30',clienta:'Rocío Paredes',servicio:'Manicura semipermanente',prof:'Noelia',estado:'Pendiente'},
+  {hora:'13:00',clienta:'Florencia Díaz',servicio:'Corte de puntas',prof:'Valentina',estado:'Completado'},
+  {hora:'14:30',clienta:'Carla Medina',servicio:'Alisado + brushing',prof:'Camila',estado:'Confirmado'},
+  {hora:'16:00',clienta:'Agustina Vera',servicio:'Color + corte',prof:'Valentina',estado:'Pendiente'},
+  {hora:'17:30',clienta:'Daniela Acosta',servicio:'Manicura + pedicura',prof:'Noelia',estado:'Cancelado'},
+];
+const D_CLIENTAS=[
+  {nombre:'Mariana Soto',tel:'11-4555-2233',ultimo:'Corte + brushing',proximo:'2026-06-21',visitas:14},
+  {nombre:'Lucía Fernández',tel:'11-6677-8899',ultimo:'Color + tratamiento',proximo:'2026-06-21',visitas:22},
+  {nombre:'Rocío Paredes',tel:'11-2345-6677',ultimo:'Manicura',proximo:'2026-06-21',visitas:8},
+  {nombre:'Florencia Díaz',tel:'11-9988-7766',ultimo:'Corte de puntas',proximo:'2026-07-05',visitas:5},
+  {nombre:'Carla Medina',tel:'11-3344-5566',ultimo:'Alisado',proximo:'2026-06-21',visitas:11},
+  {nombre:'Agustina Vera',tel:'11-7788-9900',ultimo:'Color',proximo:'2026-06-21',visitas:3},
+];
+const D_SERVICIOS=[
+  {nombre:'Corte de cabello',cat:'Corte',precio:'$9.000',dur:'40 min'},
+  {nombre:'Color completo',cat:'Color',precio:'$22.000',dur:'120 min'},
+  {nombre:'Brushing',cat:'Peinado',precio:'$7.000',dur:'30 min'},
+  {nombre:'Tratamiento de keratina',cat:'Tratamiento',precio:'$26.000',dur:'150 min'},
+  {nombre:'Manicura semipermanente',cat:'Manicura',precio:'$8.500',dur:'50 min'},
+  {nombre:'Alisado definitivo',cat:'Tratamiento',precio:'$34.000',dur:'180 min'},
+  {nombre:'Mechas / Balayage',cat:'Color',precio:'$28.000',dur:'150 min'},
+  {nombre:'Peinado para eventos',cat:'Peinado',precio:'$12.000',dur:'45 min'},
+];
+const D_PROFESIONALES=[
+  {nombre:'Valentina Roca',esp:'Cortes y color',turnos:3},
+  {nombre:'Camila Ibáñez',esp:'Tratamientos',turnos:2},
+  {nombre:'Noelia Quiroga',esp:'Manicura y pedicura',turnos:2},
+  {nombre:'Brenda Olmos',esp:'Peinados de eventos',turnos:0},
+];
+const D_STOCK=[
+  {nombre:'Tintura rubio ceniza',cat:'Coloración',cant:3,min:5},
+  {nombre:'Decolorante en polvo',cat:'Coloración',cant:8,min:4},
+  {nombre:'Shampoo profesional',cat:'Higiene',cant:12,min:6},
+  {nombre:'Ampollas de keratina',cat:'Tratamiento',cant:2,min:6},
+  {nombre:'Esmalte semipermanente rojo',cat:'Manicura',cant:1,min:3},
+  {nombre:'Papel aluminio mechas',cat:'Insumos',cant:15,min:5},
+];
+const D_ALERTAS=[
+  {texto:'Stock crítico de ampollas de keratina',meta:'Quedan 2 unidades — mínimo recomendado: 6',nivel:'critico'},
+  {texto:'Stock crítico de esmalte semipermanente rojo',meta:'Queda 1 unidad — mínimo recomendado: 3',nivel:'critico'},
+  {texto:'Tintura rubio ceniza por debajo del mínimo',meta:'Quedan 3 unidades — mínimo recomendado: 5',nivel:'atencion'},
+  {texto:'Turno sin confirmar a último momento',meta:'Agustina Vera — 16:00 — Color + corte',nivel:'atencion'},
+  {texto:'Cancelación de turno hoy',meta:'Daniela Acosta — 17:30 — Manicura + pedicura',nivel:'info'},
+];
+
+let turnos=gto('est_turnos',D_TURNOS);
+let clientas=gto('est_clientas',D_CLIENTAS);
+let servicios=gto('est_servicios',D_SERVICIOS);
+let profesionales=gto('est_prof',D_PROFESIONALES);
+let stock=gto('est_stock',D_STOCK);
+let alertas=gto('est_alertas',D_ALERTAS);
+
+// ── SIDEBAR KPIs ─────────────────────────────────────────────
+function renderSidebarKpis(){
+  const totalTurnos=turnos.length;
+  const confirmados=turnos.filter(t=>t.estado==='Confirmado').length;
+  const stockCritico=stock.filter(s=>s.cant<s.min).length;
+  const alertasCriticas=alertas.filter(a=>a.nivel==='critico').length;
+  const items=[
+    {num:totalTurnos,lbl:'Turnos hoy',sub:'agendados',cls:''},
+    {num:confirmados,lbl:'Confirmados',sub:'listos para atender',cls:''},
+    {num:stockCritico,lbl:'Stock bajo',sub:'productos a reponer',cls:stockCritico>0?'amarillo':''},
+    {num:alertasCriticas,lbl:'Alertas críticas',sub:'atender hoy',cls:alertasCriticas>0?'rojo':''},
+  ];
+  document.getElementById('sidebarKpis').innerHTML=items.map(i=>`
+    <div class="kpi-item ${i.cls}">
+      <div class="kpi-num">${i.num}</div>
+      <div class="kpi-lbl">${i.lbl}</div>
+      <div class="kpi-sub">${i.sub}</div>
+    </div>`).join('');
+}
+
+// ── TURNOS ─────────────────────────────────────────────
+const badgeClassTurno={'Confirmado':'b-confirmado','Pendiente':'b-pendiente','Completado':'b-completado','Cancelado':'b-cancelado'};
+function renderTurnos(){
+  const g=document.getElementById('turnosList');
+  if(!turnos.length){g.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay turnos agendados para hoy</div>';return;}
+  const ordenados=[...turnos].sort((a,b)=>a.hora.localeCompare(b.hora));
+  g.innerHTML=ordenados.map((t)=>{
+    const i=turnos.indexOf(t);
+    return `<div class="turno-item" onclick="abrirModalTurno(${i})">
+      <div class="turno-hora">${esc(t.hora)}</div>
+      <div>
+        <div class="turno-clienta">${esc(t.clienta)}</div>
+        <div class="turno-prof">${esc(t.prof)}</div>
+      </div>
+      <div class="turno-servicio">${esc(t.servicio)}</div>
+      <div class="turno-prof">${esc(t.prof)}</div>
+      <div style="text-align:center;"><span class="badge ${badgeClassTurno[t.estado]||'b-pendiente'}">${esc(t.estado)}</span></div>
+    </div>`;
+  }).join('');
+}
+
+let editTurnoIdx=null;
+function abrirModalTurno(i){
+  editTurnoIdx=i;
+  const t=i>=0?turnos[i]:{hora:'',clienta:'',servicio:'',prof:'',estado:'Pendiente'};
+  document.getElementById('modalTurnoTitulo').textContent=i>=0?'Editar turno':'Nuevo turno';
+  document.getElementById('t-hora').value=t.hora;
+  document.getElementById('t-clienta').value=t.clienta;
+  document.getElementById('t-servicio').value=t.servicio;
+  document.getElementById('t-prof').value=t.prof;
+  document.getElementById('t-estado').value=t.estado;
+  document.getElementById('turnoDelBtn').style.display=i>=0?'':'none';
+  document.getElementById('modalTurno').classList.add('open');
+}
+document.getElementById('turnoSaveBtn').onclick=function(){
+  const obj={
+    hora:document.getElementById('t-hora').value,
+    clienta:document.getElementById('t-clienta').value.trim(),
+    servicio:document.getElementById('t-servicio').value.trim(),
+    prof:document.getElementById('t-prof').value.trim(),
+    estado:document.getElementById('t-estado').value,
+  };
+  if(!obj.clienta||!obj.hora)return;
+  if(editTurnoIdx>=0)turnos[editTurnoIdx]=obj;else turnos.push(obj);
+  sto('est_turnos',turnos);renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
+};
+document.getElementById('turnoDelBtn').onclick=function(){
+  if(editTurnoIdx>=0&&confirm('¿Eliminar este turno?')){
+    turnos.splice(editTurnoIdx,1);sto('est_turnos',turnos);renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
+  }
+};
+
+// ── CLIENTAS ─────────────────────────────────────────────
+function renderClientas(){
+  const g=document.getElementById('clientasGrid');
+  if(!clientas.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">Todavía no hay clientas cargadas en el sistema</div>';return;}
+  g.innerHTML=clientas.map((c,i)=>{
+    const iniciales=c.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    return `<div class="clienta-card" onclick="abrirModalClienta(${i})">
+      <div class="clienta-top">
+        <div class="clienta-avatar">${iniciales}</div>
+        <div>
+          <div class="clienta-nombre">${esc(c.nombre)}</div>
+          <div class="clienta-tel">${esc(c.tel)}</div>
+        </div>
+      </div>
+      <div class="clienta-body">
+        <div class="clienta-row">Último servicio<span>${esc(c.ultimo)}</span></div>
+        <div class="clienta-row">Próximo turno<span>${c.proximo||'—'}</span></div>
+        <div class="clienta-row">Visitas totales<span>${c.visitas}</span></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+let editClientaIdx=null;
+function abrirModalClienta(i){
+  editClientaIdx=i;
+  const c=i>=0?clientas[i]:{nombre:'',tel:'',ultimo:'',proximo:'',visitas:0};
+  document.getElementById('modalClientaTitulo').textContent=i>=0?'Editar clienta':'Nueva clienta';
+  document.getElementById('c-nombre').value=c.nombre;
+  document.getElementById('c-tel').value=c.tel;
+  document.getElementById('c-ultimo').value=c.ultimo;
+  document.getElementById('c-proximo').value=c.proximo;
+  document.getElementById('c-visitas').value=c.visitas;
+  document.getElementById('clientaDelBtn').style.display=i>=0?'':'none';
+  document.getElementById('modalClienta').classList.add('open');
+}
+document.getElementById('clientaSaveBtn').onclick=function(){
+  const obj={
+    nombre:document.getElementById('c-nombre').value.trim(),
+    tel:document.getElementById('c-tel').value.trim(),
+    ultimo:document.getElementById('c-ultimo').value.trim(),
+    proximo:document.getElementById('c-proximo').value,
+    visitas:parseInt(document.getElementById('c-visitas').value)||0,
+  };
+  if(!obj.nombre)return;
+  if(editClientaIdx>=0)clientas[editClientaIdx]=obj;else clientas.push(obj);
+  sto('est_clientas',clientas);renderClientas();closeModal('modalClienta');
+};
+document.getElementById('clientaDelBtn').onclick=function(){
+  if(editClientaIdx>=0&&confirm('¿Eliminar esta clienta?')){
+    clientas.splice(editClientaIdx,1);sto('est_clientas',clientas);renderClientas();closeModal('modalClienta');
+  }
+};
+
+// ── SERVICIOS ─────────────────────────────────────────────
+const catClass={'Corte':'sc-corte','Color':'sc-color','Tratamiento':'sc-tratamiento','Manicura':'sc-manicura','Peinado':'sc-peinado'};
+function renderServicios(){
+  const g=document.getElementById('serviciosGrid');
+  if(!servicios.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">No hay servicios cargados en el catálogo</div>';return;}
+  g.innerHTML=servicios.map((s,i)=>`
+    <div class="servicio-card" onclick="abrirModalServicio(${i})">
+      <span class="servicio-cat ${catClass[s.cat]||'sc-corte'}">${esc(s.cat)}</span>
+      <div class="servicio-nombre">${esc(s.nombre)}</div>
+      <div class="servicio-footer">
+        <div class="servicio-precio">${esc(s.precio)}</div>
+        <div class="servicio-dur">${esc(s.dur)}</div>
+      </div>
+    </div>`).join('');
+}
+
+let editServicioIdx=null;
+function abrirModalServicio(i){
+  editServicioIdx=i;
+  const s=i>=0?servicios[i]:{nombre:'',cat:'Corte',precio:'',dur:''};
+  document.getElementById('modalServicioTitulo').textContent=i>=0?'Editar servicio':'Nuevo servicio';
+  document.getElementById('s-nombre').value=s.nombre;
+  document.getElementById('s-cat').value=s.cat;
+  document.getElementById('s-precio').value=s.precio;
+  document.getElementById('s-dur').value=s.dur;
+  document.getElementById('servicioDelBtn').style.display=i>=0?'':'none';
+  document.getElementById('modalServicio').classList.add('open');
+}
+document.getElementById('servicioSaveBtn').onclick=function(){
+  const obj={
+    nombre:document.getElementById('s-nombre').value.trim(),
+    cat:document.getElementById('s-cat').value,
+    precio:document.getElementById('s-precio').value.trim(),
+    dur:document.getElementById('s-dur').value.trim(),
+  };
+  if(!obj.nombre)return;
+  if(editServicioIdx>=0)servicios[editServicioIdx]=obj;else servicios.push(obj);
+  sto('est_servicios',servicios);renderServicios();closeModal('modalServicio');
+};
+document.getElementById('servicioDelBtn').onclick=function(){
+  if(editServicioIdx>=0&&confirm('¿Eliminar este servicio?')){
+    servicios.splice(editServicioIdx,1);sto('est_servicios',servicios);renderServicios();closeModal('modalServicio');
+  }
+};
+
+// ── PROFESIONALES ─────────────────────────────────────────────
+function renderProfesionales(){
+  const g=document.getElementById('profGrid');
+  if(!profesionales.length){g.innerHTML='<div style="grid-column:1/-1;padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay profesionales cargadas en el sistema</div>';return;}
+  g.innerHTML=profesionales.map(p=>{
+    const iniciales=p.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    const turnosHoy=turnos.filter(t=>t.prof===p.nombre.split(' ')[0]||t.prof===p.nombre).length;
+    return `<div class="prof-card">
+      <div class="prof-avatar">${iniciales}</div>
+      <div class="prof-info">
+        <div class="prof-nombre">${esc(p.nombre)}</div>
+        <div class="prof-esp">${esc(p.esp)}</div>
+      </div>
+      <div class="prof-num">${turnosHoy}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── STOCK ─────────────────────────────────────────────
+function renderStock(){
+  const g=document.getElementById('stockList');
+  if(!stock.length){g.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay productos cargados en el stock</div>';return;}
+  g.innerHTML=stock.map((s,i)=>{
+    const estado=s.cant<s.min?(s.cant<=s.min/2?'Crítico':'Bajo'):'OK';
+    const color=estado==='Crítico'?'var(--rojo)':estado==='Bajo'?'var(--amarillo)':'var(--verde)';
+    return `<div class="stock-item" onclick="abrirModalStock(${i})">
+      <div>
+        <div class="stock-nombre">${esc(s.nombre)}</div>
+        <div class="stock-cat">${esc(s.cat)}</div>
+      </div>
+      <div class="stock-cant" style="text-align:center;">${s.cant}</div>
+      <div class="stock-cant" style="text-align:center;color:var(--text-muted);">${s.min}</div>
+      <div style="text-align:center;"><span class="badge" style="background:${color}22;color:${color};">${estado}</span></div>
+    </div>`;
+  }).join('');
+}
+
+let editStockIdx=null;
+function abrirModalStock(i){
+  editStockIdx=i;
+  const s=i>=0?stock[i]:{nombre:'',cat:'',cant:0,min:0};
+  document.getElementById('modalStockTitulo').textContent=i>=0?'Editar producto':'Nuevo producto';
+  document.getElementById('st-nombre').value=s.nombre;
+  document.getElementById('st-cat').value=s.cat;
+  document.getElementById('st-cant').value=s.cant;
+  document.getElementById('st-min').value=s.min;
+  document.getElementById('stockDelBtn').style.display=i>=0?'':'none';
+  document.getElementById('modalStock').classList.add('open');
+}
+document.getElementById('stockSaveBtn').onclick=function(){
+  const obj={
+    nombre:document.getElementById('st-nombre').value.trim(),
+    cat:document.getElementById('st-cat').value.trim(),
+    cant:parseInt(document.getElementById('st-cant').value)||0,
+    min:parseInt(document.getElementById('st-min').value)||0,
+  };
+  if(!obj.nombre)return;
+  if(editStockIdx>=0)stock[editStockIdx]=obj;else stock.push(obj);
+  sto('est_stock',stock);renderStock();renderSidebarKpis();closeModal('modalStock');
+};
+document.getElementById('stockDelBtn').onclick=function(){
+  if(editStockIdx>=0&&confirm('¿Eliminar este producto?')){
+    stock.splice(editStockIdx,1);sto('est_stock',stock);renderStock();renderSidebarKpis();closeModal('modalStock');
+  }
+};
+
+// ── ALERTAS ─────────────────────────────────────────────
+const alertaIcon={critico:'🚨',atencion:'⚠️',info:'ℹ️'};
+function renderAlertas(){
+  const w=document.getElementById('alertasWrap');
+  if(!alertas.length){w.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay alertas activas. Todo está al día</div>';return;}
+  w.innerHTML=alertas.map(a=>`
+    <div class="alerta-item">
+      <div class="alerta-icon ai-${a.nivel}">${alertaIcon[a.nivel]||'📌'}</div>
+      <div class="alerta-content">
+        <div class="alerta-text">${esc(a.texto)}</div>
+        <div class="alerta-meta">${esc(a.meta)}</div>
+      </div>
+      <span class="alerta-nivel an-${a.nivel}">${a.nivel}</span>
+    </div>`).join('');
+}
+
+// ── NAVEGACIÓN ────────────────────────────────────────────
+function navTo(secId, el){
+  const sec=document.getElementById(secId);
+  if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  if(el) el.classList.add('active');
+}
+
+// ── MODAL HELPER ───────────────────────────────────────
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.moverlay').forEach(m=>{
+  m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
+});
+
+// ── INIT ─────────────────────────────────────────────
+renderSidebarKpis();
+renderTurnos();
+renderClientas();
+renderServicios();
+renderProfesionales();
+renderStock();
+renderAlertas();
+</script>
+</body>
+</html>
