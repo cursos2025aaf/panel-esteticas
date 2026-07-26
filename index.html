@@ -23,10 +23,8 @@
   --text-muted:#94a3b8;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-
 /* ── LAYOUT PRINCIPAL ── */
 .app-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
-
 /* ── SIDEBAR ── */
 .sidebar{background:var(--navy);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
 .sidebar-logo{padding:20px 18px 16px;border-bottom:1px solid rgba(255,255,255,.1);}
@@ -44,47 +42,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .kpi-num{font-size:1.6rem;font-weight:800;color:#fff;line-height:1;}
 .kpi-lbl{font-size:.58rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
 .kpi-sub{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:1px;}
-.sidebar-nav{padding:14px 10px;margin-top:auto;border-top:1px solid rgba(255,255,255,.08);}
+.sidebar-nav{padding:14px 10px;border-top:1px solid rgba(255,255,255,.08);}
 .nav-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;}
 .nav-item:hover{background:rgba(255,255,255,.08);color:#fff;}
 .nav-item.active{background:var(--rosa);color:#fff;}
-
+.sidebar-backup{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:6px;}
+.backup-lbl{font-size:.56rem;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.4);margin-bottom:2px;}
+.backup-btn{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:7px 10px;font-size:.68rem;font-weight:600;cursor:pointer;text-align:left;}
+.backup-btn:hover{background:rgba(255,255,255,.16);}
 /* ── CONTENIDO PRINCIPAL ── */
 .main-content{padding:20px 24px;overflow-y:auto;}
-.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap;}
 .page-title{font-size:1.1rem;font-weight:800;color:var(--text);}
 .page-sub{font-size:.72rem;color:var(--text-muted);margin-top:2px;}
-.btn-primary{background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.75rem;font-weight:700;cursor:pointer;transition:background .15s;}
+.btn-primary{background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.75rem;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap;}
 .btn-primary:hover{background:#be185d;}
-
 /* ── SECCIÓN TITLE ── */
 .stitle{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px;}
 .stitle::after{content:'';flex:1;height:1px;background:var(--border);}
 .stitle:first-child{margin-top:0;}
-
+/* ── NAV DE FECHA (AGENDA) ── */
+.date-nav{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.date-btn{background:var(--white);border:1px solid var(--border);border-radius:6px;width:28px;height:28px;font-size:.8rem;font-weight:700;color:var(--text-soft);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.date-btn:hover{background:#f1f5f9;}
+.date-hoy{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.68rem;font-weight:700;color:var(--rosa);cursor:pointer;}
+.date-hoy:hover{background:var(--verde-light);}
+.date-label{font-size:.78rem;font-weight:700;color:var(--text);text-transform:capitalize;}
 /* ── AGENDA / TURNOS ── */
 .turnos-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
-.turno-item{display:grid;grid-template-columns:70px 2fr 1.2fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.turno-item{display:grid;grid-template-columns:70px 1.6fr 1.4fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
 .turno-item:last-child{border-bottom:none;}
 .turno-item:hover{background:#f8fafc;}
-.turno-item-header{display:grid;grid-template-columns:70px 2fr 1.2fr 1fr 90px;gap:10px;padding:8px 16px;background:#f8fafc;border-bottom:1px solid var(--border);}
+.turno-item-header{display:grid;grid-template-columns:70px 1.6fr 1.4fr 1fr 90px;gap:10px;padding:8px 16px;background:#f8fafc;border-bottom:1px solid var(--border);}
 .turno-th{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);}
 .turno-hora{font-size:.85rem;font-weight:800;color:var(--rosa);}
 .turno-clienta{font-size:.78rem;font-weight:700;color:var(--text);}
-.turno-prof{font-size:.62rem;color:var(--text-muted);margin-top:1px;}
+.turno-tel{font-size:.62rem;color:var(--text-muted);margin-top:1px;}
 .turno-servicio{font-size:.72rem;color:var(--text-soft);}
-
+.turno-prof{font-size:.72rem;color:var(--text-soft);}
 /* ── BADGES ESTADO ── */
 .badge{display:inline-block;font-size:.55rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:.4px;text-transform:uppercase;}
 .b-confirmado{background:#dcfce7;color:#15803d;}
 .b-pendiente{background:#fef9c3;color:#854d0e;}
 .b-cancelado{background:#fee2e2;color:#dc2626;}
 .b-completado{background:#dbeafe;color:#1d4ed8;}
-
 /* ── DOS COLUMNAS ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-
 /* ── CLIENTAS ── */
+.clientas-toolbar{display:flex;gap:8px;margin-bottom:10px;}
+.buscador{flex:1;font-size:.75rem;border:1px solid var(--border);border-radius:8px;padding:8px 12px;outline:none;background:var(--white);}
+.buscador:focus{border-color:var(--rosa);}
 .clientas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
 .clienta-card{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s;border:1px solid var(--border);}
 .clienta-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
@@ -95,7 +102,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .clienta-body{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
 .clienta-row{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-top:4px;}
 .clienta-row span{font-weight:700;color:var(--text);}
-
 /* ── SERVICIOS ── */
 .servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
 .servicio-card{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;border:1px solid var(--border);transition:transform .15s,box-shadow .15s;}
@@ -110,16 +116,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .servicio-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
 .servicio-precio{font-size:1rem;font-weight:800;color:var(--verde-dark);}
 .servicio-dur{font-size:.62rem;color:var(--text-muted);}
-
 /* ── PROFESIONALES ── */
-.prof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.prof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
 .prof-card{background:var(--white);border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid var(--border);display:flex;align-items:center;gap:12px;cursor:pointer;}
 .prof-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0;}
 .prof-info{flex:1;}
 .prof-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
 .prof-esp{font-size:.62rem;color:var(--text-muted);}
 .prof-num{font-size:1.2rem;font-weight:800;color:var(--rosa);}
-
 /* ── STOCK ── */
 .stock-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
 .stock-item{display:grid;grid-template-columns:2fr 1fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
@@ -130,7 +134,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .stock-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
 .stock-cat{font-size:.62rem;color:var(--text-muted);}
 .stock-cant{font-size:.75rem;font-weight:700;text-align:center;}
-
 /* ── ALERTAS ── */
 .alertas-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
 .alerta-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
@@ -147,11 +150,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .an-critico{background:#fee2e2;color:#dc2626;}
 .an-atencion{background:#fef9c3;color:#854d0e;}
 .an-info{background:#dbeafe;color:#1d4ed8;}
-
 /* ── BOTONES ── */
 .btn-add{background:var(--bg);border:1px dashed #cbd5e1;border-radius:6px;padding:5px 12px;font-size:.72rem;font-weight:600;color:var(--gris);cursor:pointer;transition:background .15s;}
 .btn-add:hover{background:var(--border);}
-
 /* ── MODAL ── */
 .moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:20px;}
 .moverlay.open{display:flex;}
@@ -160,20 +161,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal label{font-size:.72rem;font-weight:700;color:var(--gris);display:block;margin-bottom:4px;margin-top:12px;}
 .modal input,.modal select,.modal textarea{width:100%;font-size:.82rem;border:1px solid var(--border);border-radius:8px;padding:8px 12px;outline:none;color:var(--text);background:#fff;}
 .modal input:focus,.modal select:focus{border-color:var(--rosa);}
+.field-error{font-size:.62rem;color:var(--rojo);margin-top:3px;display:none;}
+.field-error.show{display:block;}
 .mactions{display:flex;gap:8px;margin-top:18px;}
 .mbtn-save{flex:1;background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:10px;font-size:.82rem;font-weight:700;cursor:pointer;}
 .mbtn-save:hover{background:#be185d;}
 .mbtn-cancel{background:#f1f5f9;color:var(--gris);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
 .mbtn-del{background:#fee2e2;color:var(--rojo);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
-
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:12px 18px;border-radius:8px;font-size:.78rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:900;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.toast.show{opacity:1;transform:translateY(0);}
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){.app-layout{grid-template-columns:1fr;}.sidebar{height:auto;position:relative;}.sidebar-kpis{flex-direction:row;flex-wrap:wrap;}.kpi-item{flex:1;min-width:120px;}.prof-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:1024px){.app-layout{grid-template-columns:1fr;}.sidebar{height:auto;position:relative;}.sidebar-kpis{flex-direction:row;flex-wrap:wrap;}.kpi-item{flex:1;min-width:120px;}}
 @media(max-width:600px){.clientas-grid,.servicios-grid{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.turno-item,.turno-item-header{grid-template-columns:1fr 1fr;}.stock-item,.stock-item-header{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 <div class="app-layout">
-
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
@@ -190,22 +194,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="nav-item" onclick="navTo('secStock',this)">🧴 Stock</div>
       <div class="nav-item" onclick="navTo('secAlertas',this)">🔔 Alertas</div>
     </div>
+    <div class="sidebar-backup">
+      <div class="backup-lbl">Copia de seguridad</div>
+      <button class="backup-btn" onclick="exportarDatos()">⬇️ Exportar datos</button>
+      <button class="backup-btn" onclick="document.getElementById('importFile').click()">⬆️ Importar datos</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importarDatos(this)">
+    </div>
   </aside>
-
   <!-- CONTENIDO -->
   <main class="main-content">
-
     <div class="page-header">
       <div>
-        <div class="page-title">Agenda del día</div>
+        <div class="page-title">Agenda</div>
         <div class="page-sub">Gestión de turnos, clientas, servicios y stock</div>
       </div>
       <button class="btn-primary" onclick="abrirModalTurno(-1)">+ Nuevo turno</button>
     </div>
-
     <!-- AGENDA -->
     <div id="secAgenda">
-      <div class="stitle">Turnos de hoy</div>
+      <div class="stitle">Turnos</div>
+      <div class="date-nav">
+        <button class="date-btn" onclick="cambiarDia(-1)" aria-label="Día anterior">‹</button>
+        <div class="date-label" id="fechaAgendaLabel"></div>
+        <button class="date-btn" onclick="cambiarDia(1)" aria-label="Día siguiente">›</button>
+        <button class="date-hoy" onclick="irHoy()">Hoy</button>
+      </div>
       <div class="turnos-wrap">
         <div class="turno-item-header">
           <div class="turno-th">Hora</div>
@@ -217,14 +230,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div id="turnosList"></div>
       </div>
     </div>
-
     <!-- CLIENTAS -->
     <div id="secClientas">
       <div class="stitle" style="margin-top:24px;">Clientas</div>
+      <div class="clientas-toolbar">
+        <input type="text" class="buscador" id="buscadorClientas" placeholder="Buscar por nombre o teléfono..." oninput="renderClientas()">
+      </div>
       <div class="clientas-grid" id="clientasGrid"></div>
       <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalClienta(-1)">+ Nueva clienta</button></div>
     </div>
-
     <!-- DOS COLUMNAS: SERVICIOS / PROFESIONALES -->
     <div class="two-col">
       <div id="secServicios">
@@ -233,11 +247,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalServicio(-1)">+ Nuevo servicio</button></div>
       </div>
       <div id="secProfesionales">
-        <div class="stitle" style="margin-top:24px;">Profesionales — turnos de hoy</div>
+        <div class="stitle" style="margin-top:24px;">Profesionales — turnos del día</div>
         <div class="prof-grid" id="profGrid"></div>
+        <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalProf(-1)">+ Nueva profesional</button></div>
       </div>
     </div>
-
     <!-- STOCK -->
     <div id="secStock">
       <div class="stitle" style="margin-top:24px;">Stock de productos</div>
@@ -252,25 +266,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalStock(-1)">+ Nuevo producto</button></div>
     </div>
-
     <!-- ALERTAS -->
     <div id="secAlertas">
       <div class="stitle" style="margin-top:24px;">Alertas</div>
       <div class="alertas-wrap" id="alertasWrap"></div>
     </div>
-
   </main>
 </div>
-
 <!-- MODAL TURNO -->
 <div class="moverlay" id="modalTurno">
   <div class="modal">
     <h3 id="modalTurnoTitulo">Turno</h3>
-    <label>Hora</label><input type="time" id="t-hora">
-    <label>Clienta</label><input type="text" id="t-clienta" placeholder="Nombre de la clienta">
-    <label>Servicio</label><input type="text" id="t-servicio" placeholder="Ej: Corte + color">
-    <label>Profesional</label><input type="text" id="t-prof" placeholder="Ej: Valentina">
-    <label>Estado</label>
+    <label for="t-fecha">Fecha</label><input type="date" id="t-fecha">
+    <label for="t-hora">Hora</label><input type="time" id="t-hora">
+    <label for="t-clienta">Clienta</label>
+    <input type="text" id="t-clienta" placeholder="Nombre de la clienta" list="dl-clientas">
+    <datalist id="dl-clientas"></datalist>
+    <div class="field-error" id="t-clienta-err">La clienta y la hora son obligatorias.</div>
+    <label for="t-servicio">Servicio</label>
+    <input type="text" id="t-servicio" placeholder="Ej: Corte + color" list="dl-servicios">
+    <datalist id="dl-servicios"></datalist>
+    <label for="t-prof">Profesional</label>
+    <input type="text" id="t-prof" placeholder="Ej: Valentina" list="dl-profesionales">
+    <datalist id="dl-profesionales"></datalist>
+    <label for="t-estado">Estado</label>
     <select id="t-estado">
       <option value="Confirmado">Confirmado</option>
       <option value="Pendiente">Pendiente</option>
@@ -284,16 +303,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-
 <!-- MODAL CLIENTA -->
 <div class="moverlay" id="modalClienta">
   <div class="modal">
     <h3 id="modalClientaTitulo">Clienta</h3>
-    <label>Nombre</label><input type="text" id="c-nombre" placeholder="Nombre y apellido">
-    <label>Teléfono</label><input type="text" id="c-tel" placeholder="Ej: 11-4555-2233">
-    <label>Último servicio</label><input type="text" id="c-ultimo" placeholder="Ej: Corte + brushing">
-    <label>Próximo turno</label><input type="date" id="c-proximo">
-    <label>Total visitas</label><input type="number" id="c-visitas" min="0" placeholder="0">
+    <label for="c-nombre">Nombre</label><input type="text" id="c-nombre" placeholder="Nombre y apellido">
+    <div class="field-error" id="c-nombre-err">El nombre es obligatorio.</div>
+    <label for="c-tel">Teléfono</label><input type="text" id="c-tel" placeholder="Ej: 11-4555-2233">
+    <label for="c-ultimo">Último servicio</label><input type="text" id="c-ultimo" placeholder="Ej: Corte + brushing">
+    <label for="c-proximo">Próximo turno</label><input type="date" id="c-proximo">
+    <label for="c-visitas">Total visitas</label><input type="number" id="c-visitas" min="0" placeholder="0">
     <div class="mactions">
       <button class="mbtn-save" id="clientaSaveBtn">Guardar</button>
       <button class="mbtn-del" id="clientaDelBtn" style="display:none">Eliminar</button>
@@ -301,13 +320,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-
 <!-- MODAL SERVICIO -->
 <div class="moverlay" id="modalServicio">
   <div class="modal">
     <h3 id="modalServicioTitulo">Servicio</h3>
-    <label>Nombre</label><input type="text" id="s-nombre" placeholder="Ej: Color + brushing">
-    <label>Categoría</label>
+    <label for="s-nombre">Nombre</label><input type="text" id="s-nombre" placeholder="Ej: Color + brushing">
+    <div class="field-error" id="s-nombre-err">El nombre es obligatorio.</div>
+    <label for="s-cat">Categoría</label>
     <select id="s-cat">
       <option value="Corte">Corte</option>
       <option value="Color">Color</option>
@@ -315,8 +334,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <option value="Manicura">Manicura</option>
       <option value="Peinado">Peinado</option>
     </select>
-    <label>Precio</label><input type="text" id="s-precio" placeholder="Ej: $18.000">
-    <label>Duración</label><input type="text" id="s-dur" placeholder="Ej: 90 min">
+    <label for="s-precio">Precio</label><input type="text" id="s-precio" placeholder="Ej: 18000" inputmode="numeric">
+    <label for="s-dur">Duración (minutos)</label><input type="number" id="s-dur" min="1" placeholder="Ej: 90">
     <div class="mactions">
       <button class="mbtn-save" id="servicioSaveBtn">Guardar</button>
       <button class="mbtn-del" id="servicioDelBtn" style="display:none">Eliminar</button>
@@ -324,15 +343,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-
 <!-- MODAL STOCK -->
 <div class="moverlay" id="modalStock">
   <div class="modal">
     <h3 id="modalStockTitulo">Producto</h3>
-    <label>Nombre</label><input type="text" id="st-nombre" placeholder="Ej: Tintura rubio ceniza">
-    <label>Categoría</label><input type="text" id="st-cat" placeholder="Ej: Coloración">
-    <label>Cantidad actual</label><input type="number" id="st-cant" min="0" placeholder="0">
-    <label>Cantidad mínima</label><input type="number" id="st-min" min="0" placeholder="0">
+    <label for="st-nombre">Nombre</label><input type="text" id="st-nombre" placeholder="Ej: Tintura rubio ceniza">
+    <div class="field-error" id="st-nombre-err">El nombre es obligatorio.</div>
+    <label for="st-cat">Categoría</label><input type="text" id="st-cat" placeholder="Ej: Coloración">
+    <label for="st-cant">Cantidad actual</label><input type="number" id="st-cant" min="0" placeholder="0">
+    <label for="st-min">Cantidad mínima</label><input type="number" id="st-min" min="0" placeholder="0">
     <div class="mactions">
       <button class="mbtn-save" id="stockSaveBtn">Guardar</button>
       <button class="mbtn-del" id="stockDelBtn" style="display:none">Eliminar</button>
@@ -340,36 +359,64 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-
+<!-- MODAL PROFESIONAL -->
+<div class="moverlay" id="modalProf">
+  <div class="modal">
+    <h3 id="modalProfTitulo">Profesional</h3>
+    <label for="p-nombre">Nombre</label><input type="text" id="p-nombre" placeholder="Nombre y apellido">
+    <div class="field-error" id="p-nombre-err">El nombre es obligatorio.</div>
+    <label for="p-esp">Especialidad</label><input type="text" id="p-esp" placeholder="Ej: Cortes y color">
+    <div class="mactions">
+      <button class="mbtn-save" id="profSaveBtn">Guardar</button>
+      <button class="mbtn-del" id="profDelBtn" style="display:none">Eliminar</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalProf')">Cancelar</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
 <script>
-// ── FECHA ───────────────────────────────────────────────
+// ── FECHA / UTILIDADES ─────────────────────────────────
 const DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-const N=new Date();
-document.getElementById('fechaSidebar').textContent=DIAS[N.getDay()]+' '+N.getDate()+' de '+MES[N.getMonth()];
-
+function hoyISO(){
+  const d=new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function fechaLegible(iso){
+  const [y,m,d]=iso.split('-').map(Number);
+  const dt=new Date(y,m-1,d);
+  return DIAS[dt.getDay()]+' '+d+' de '+MES[m-1];
+}
+document.getElementById('fechaSidebar').textContent=fechaLegible(hoyISO());
+let fechaSeleccionada=hoyISO();
 // ── STORAGE ────────────────────────────────────────────
 function sto(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 function gto(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-// ── DATOS INICIALES ────────────────────────────────────
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
+// ── DATOS INICIALES (la fecha de los turnos de ejemplo se ajusta a "hoy" para que la demo siempre se vea completa) ──
+const HOY=hoyISO();
 const D_TURNOS=[
-  {hora:'09:00',clienta:'Mariana Soto',servicio:'Corte + brushing',prof:'Valentina',estado:'Confirmado'},
-  {hora:'10:00',clienta:'Lucía Fernández',servicio:'Color + tratamiento',prof:'Camila',estado:'Confirmado'},
-  {hora:'11:30',clienta:'Rocío Paredes',servicio:'Manicura semipermanente',prof:'Noelia',estado:'Pendiente'},
-  {hora:'13:00',clienta:'Florencia Díaz',servicio:'Corte de puntas',prof:'Valentina',estado:'Completado'},
-  {hora:'14:30',clienta:'Carla Medina',servicio:'Alisado + brushing',prof:'Camila',estado:'Confirmado'},
-  {hora:'16:00',clienta:'Agustina Vera',servicio:'Color + corte',prof:'Valentina',estado:'Pendiente'},
-  {hora:'17:30',clienta:'Daniela Acosta',servicio:'Manicura + pedicura',prof:'Noelia',estado:'Cancelado'},
+  {fecha:HOY,hora:'09:00',clienta:'Mariana Soto',servicio:'Corte + brushing',prof:'Valentina',estado:'Confirmado'},
+  {fecha:HOY,hora:'10:00',clienta:'Lucía Fernández',servicio:'Color + tratamiento',prof:'Camila',estado:'Confirmado'},
+  {fecha:HOY,hora:'11:30',clienta:'Rocío Paredes',servicio:'Manicura semipermanente',prof:'Noelia',estado:'Pendiente'},
+  {fecha:HOY,hora:'13:00',clienta:'Florencia Díaz',servicio:'Corte de puntas',prof:'Valentina',estado:'Completado'},
+  {fecha:HOY,hora:'14:30',clienta:'Carla Medina',servicio:'Alisado + brushing',prof:'Camila',estado:'Confirmado'},
+  {fecha:HOY,hora:'16:00',clienta:'Agustina Vera',servicio:'Color + corte',prof:'Valentina',estado:'Pendiente'},
+  {fecha:HOY,hora:'17:30',clienta:'Daniela Acosta',servicio:'Manicura + pedicura',prof:'Noelia',estado:'Cancelado'},
 ];
 const D_CLIENTAS=[
-  {nombre:'Mariana Soto',tel:'11-4555-2233',ultimo:'Corte + brushing',proximo:'2026-06-21',visitas:14},
-  {nombre:'Lucía Fernández',tel:'11-6677-8899',ultimo:'Color + tratamiento',proximo:'2026-06-21',visitas:22},
-  {nombre:'Rocío Paredes',tel:'11-2345-6677',ultimo:'Manicura',proximo:'2026-06-21',visitas:8},
-  {nombre:'Florencia Díaz',tel:'11-9988-7766',ultimo:'Corte de puntas',proximo:'2026-07-05',visitas:5},
-  {nombre:'Carla Medina',tel:'11-3344-5566',ultimo:'Alisado',proximo:'2026-06-21',visitas:11},
-  {nombre:'Agustina Vera',tel:'11-7788-9900',ultimo:'Color',proximo:'2026-06-21',visitas:3},
+  {nombre:'Mariana Soto',tel:'11-4555-2233',ultimo:'Corte + brushing',proximo:HOY,visitas:14},
+  {nombre:'Lucía Fernández',tel:'11-6677-8899',ultimo:'Color + tratamiento',proximo:HOY,visitas:22},
+  {nombre:'Rocío Paredes',tel:'11-2345-6677',ultimo:'Manicura',proximo:HOY,visitas:8},
+  {nombre:'Florencia Díaz',tel:'11-9988-7766',ultimo:'Corte de puntas',proximo:'',visitas:5},
+  {nombre:'Carla Medina',tel:'11-3344-5566',ultimo:'Alisado',proximo:HOY,visitas:11},
+  {nombre:'Agustina Vera',tel:'11-7788-9900',ultimo:'Color',proximo:HOY,visitas:3},
 ];
 const D_SERVICIOS=[
   {nombre:'Corte de cabello',cat:'Corte',precio:'$9.000',dur:'40 min'},
@@ -382,10 +429,10 @@ const D_SERVICIOS=[
   {nombre:'Peinado para eventos',cat:'Peinado',precio:'$12.000',dur:'45 min'},
 ];
 const D_PROFESIONALES=[
-  {nombre:'Valentina Roca',esp:'Cortes y color',turnos:3},
-  {nombre:'Camila Ibáñez',esp:'Tratamientos',turnos:2},
-  {nombre:'Noelia Quiroga',esp:'Manicura y pedicura',turnos:2},
-  {nombre:'Brenda Olmos',esp:'Peinados de eventos',turnos:0},
+  {nombre:'Valentina Roca',esp:'Cortes y color'},
+  {nombre:'Camila Ibáñez',esp:'Tratamientos'},
+  {nombre:'Noelia Quiroga',esp:'Manicura y pedicura'},
+  {nombre:'Brenda Olmos',esp:'Peinados de eventos'},
 ];
 const D_STOCK=[
   {nombre:'Tintura rubio ceniza',cat:'Coloración',cant:3,min:5},
@@ -402,22 +449,22 @@ const D_ALERTAS=[
   {texto:'Turno sin confirmar a último momento',meta:'Agustina Vera — 16:00 — Color + corte',nivel:'atencion'},
   {texto:'Cancelación de turno hoy',meta:'Daniela Acosta — 17:30 — Manicura + pedicura',nivel:'info'},
 ];
-
 let turnos=gto('est_turnos',D_TURNOS);
 let clientas=gto('est_clientas',D_CLIENTAS);
 let servicios=gto('est_servicios',D_SERVICIOS);
 let profesionales=gto('est_prof',D_PROFESIONALES);
 let stock=gto('est_stock',D_STOCK);
 let alertas=gto('est_alertas',D_ALERTAS);
-
+// migración: turnos guardados antes de tener "fecha" se asumen de hoy
+turnos=turnos.map(t=>t.fecha?t:Object.assign({},t,{fecha:HOY}));
 // ── SIDEBAR KPIs ─────────────────────────────────────────────
 function renderSidebarKpis(){
-  const totalTurnos=turnos.length;
-  const confirmados=turnos.filter(t=>t.estado==='Confirmado').length;
+  const turnosDelDia=turnos.filter(t=>t.fecha===fechaSeleccionada);
+  const confirmados=turnosDelDia.filter(t=>t.estado==='Confirmado').length;
   const stockCritico=stock.filter(s=>s.cant<s.min).length;
   const alertasCriticas=alertas.filter(a=>a.nivel==='critico').length;
   const items=[
-    {num:totalTurnos,lbl:'Turnos hoy',sub:'agendados',cls:''},
+    {num:turnosDelDia.length,lbl:'Turnos del día',sub:'agendados',cls:''},
     {num:confirmados,lbl:'Confirmados',sub:'listos para atender',cls:''},
     {num:stockCritico,lbl:'Stock bajo',sub:'productos a reponer',cls:stockCritico>0?'amarillo':''},
     {num:alertasCriticas,lbl:'Alertas críticas',sub:'atender hoy',cls:alertasCriticas>0?'rojo':''},
@@ -429,82 +476,105 @@ function renderSidebarKpis(){
       <div class="kpi-sub">${i.sub}</div>
     </div>`).join('');
 }
-
+// ── NAVEGACIÓN DE FECHA ─────────────────────────────────
+function cambiarDia(delta){
+  const [y,m,d]=fechaSeleccionada.split('-').map(Number);
+  const dt=new Date(y,m-1,d);
+  dt.setDate(dt.getDate()+delta);
+  fechaSeleccionada=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+  renderTurnos();renderSidebarKpis();renderProfesionales();
+}
+function irHoy(){
+  fechaSeleccionada=hoyISO();
+  renderTurnos();renderSidebarKpis();renderProfesionales();
+}
 // ── TURNOS ─────────────────────────────────────────────
 const badgeClassTurno={'Confirmado':'b-confirmado','Pendiente':'b-pendiente','Completado':'b-completado','Cancelado':'b-cancelado'};
 function renderTurnos(){
+  const lbl=document.getElementById('fechaAgendaLabel');
+  const esHoy=fechaSeleccionada===hoyISO();
+  lbl.textContent=(esHoy?'Hoy — ':'')+fechaLegible(fechaSeleccionada);
   const g=document.getElementById('turnosList');
-  if(!turnos.length){g.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay turnos agendados para hoy</div>';return;}
-  const ordenados=[...turnos].sort((a,b)=>a.hora.localeCompare(b.hora));
+  const delDia=turnos.filter(t=>t.fecha===fechaSeleccionada);
+  if(!delDia.length){g.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay turnos agendados para este día</div>';return;}
+  const ordenados=[...delDia].sort((a,b)=>a.hora.localeCompare(b.hora));
   g.innerHTML=ordenados.map((t)=>{
     const i=turnos.indexOf(t);
     return `<div class="turno-item" onclick="abrirModalTurno(${i})">
       <div class="turno-hora">${esc(t.hora)}</div>
-      <div>
-        <div class="turno-clienta">${esc(t.clienta)}</div>
-        <div class="turno-prof">${esc(t.prof)}</div>
-      </div>
+      <div class="turno-clienta">${esc(t.clienta)}</div>
       <div class="turno-servicio">${esc(t.servicio)}</div>
       <div class="turno-prof">${esc(t.prof)}</div>
       <div style="text-align:center;"><span class="badge ${badgeClassTurno[t.estado]||'b-pendiente'}">${esc(t.estado)}</span></div>
     </div>`;
   }).join('');
 }
-
 let editTurnoIdx=null;
 function abrirModalTurno(i){
   editTurnoIdx=i;
-  const t=i>=0?turnos[i]:{hora:'',clienta:'',servicio:'',prof:'',estado:'Pendiente'};
+  const t=i>=0?turnos[i]:{fecha:fechaSeleccionada,hora:'',clienta:'',servicio:'',prof:'',estado:'Pendiente'};
   document.getElementById('modalTurnoTitulo').textContent=i>=0?'Editar turno':'Nuevo turno';
+  document.getElementById('t-fecha').value=t.fecha;
   document.getElementById('t-hora').value=t.hora;
   document.getElementById('t-clienta').value=t.clienta;
   document.getElementById('t-servicio').value=t.servicio;
   document.getElementById('t-prof').value=t.prof;
   document.getElementById('t-estado').value=t.estado;
+  document.getElementById('t-clienta-err').classList.remove('show');
   document.getElementById('turnoDelBtn').style.display=i>=0?'':'none';
   document.getElementById('modalTurno').classList.add('open');
 }
 document.getElementById('turnoSaveBtn').onclick=function(){
   const obj={
+    fecha:document.getElementById('t-fecha').value||fechaSeleccionada,
     hora:document.getElementById('t-hora').value,
     clienta:document.getElementById('t-clienta').value.trim(),
     servicio:document.getElementById('t-servicio').value.trim(),
     prof:document.getElementById('t-prof').value.trim(),
     estado:document.getElementById('t-estado').value,
   };
-  if(!obj.clienta||!obj.hora)return;
+  if(!obj.clienta||!obj.hora){document.getElementById('t-clienta-err').classList.add('show');return;}
   if(editTurnoIdx>=0)turnos[editTurnoIdx]=obj;else turnos.push(obj);
-  sto('est_turnos',turnos);renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
+  sto('est_turnos',turnos);
+  fechaSeleccionada=obj.fecha;
+  renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
+  toast('Turno guardado');
 };
 document.getElementById('turnoDelBtn').onclick=function(){
   if(editTurnoIdx>=0&&confirm('¿Eliminar este turno?')){
     turnos.splice(editTurnoIdx,1);sto('est_turnos',turnos);renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
+    toast('Turno eliminado');
   }
 };
-
 // ── CLIENTAS ─────────────────────────────────────────────
 function renderClientas(){
   const g=document.getElementById('clientasGrid');
-  if(!clientas.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">Todavía no hay clientas cargadas en el sistema</div>';return;}
-  g.innerHTML=clientas.map((c,i)=>{
-    const iniciales=c.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-    return `<div class="clienta-card" onclick="abrirModalClienta(${i})">
-      <div class="clienta-top">
-        <div class="clienta-avatar">${iniciales}</div>
-        <div>
-          <div class="clienta-nombre">${esc(c.nombre)}</div>
-          <div class="clienta-tel">${esc(c.tel)}</div>
+  const q=(document.getElementById('buscadorClientas').value||'').trim().toLowerCase();
+  const filtradas=clientas.filter(c=>!q||c.nombre.toLowerCase().includes(q)||(c.tel||'').toLowerCase().includes(q));
+  if(!clientas.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">Todavía no hay clientas cargadas en el sistema</div>';}
+  else if(!filtradas.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">No se encontraron clientas para esa búsqueda</div>';}
+  else{
+    g.innerHTML=filtradas.map((c)=>{
+      const i=clientas.indexOf(c);
+      const iniciales=c.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+      return `<div class="clienta-card" onclick="abrirModalClienta(${i})">
+        <div class="clienta-top">
+          <div class="clienta-avatar">${iniciales}</div>
+          <div>
+            <div class="clienta-nombre">${esc(c.nombre)}</div>
+            <div class="clienta-tel">${esc(c.tel)}</div>
+          </div>
         </div>
-      </div>
-      <div class="clienta-body">
-        <div class="clienta-row">Último servicio<span>${esc(c.ultimo)}</span></div>
-        <div class="clienta-row">Próximo turno<span>${c.proximo||'—'}</span></div>
-        <div class="clienta-row">Visitas totales<span>${c.visitas}</span></div>
-      </div>
-    </div>`;
-  }).join('');
+        <div class="clienta-body">
+          <div class="clienta-row">Último servicio<span>${esc(c.ultimo||'—')}</span></div>
+          <div class="clienta-row">Próximo turno<span>${c.proximo||'—'}</span></div>
+          <div class="clienta-row">Visitas totales<span>${c.visitas}</span></div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('dl-clientas').innerHTML=clientas.map(c=>`<option value="${esc(c.nombre)}">`).join('');
 }
-
 let editClientaIdx=null;
 function abrirModalClienta(i){
   editClientaIdx=i;
@@ -515,6 +585,7 @@ function abrirModalClienta(i){
   document.getElementById('c-ultimo').value=c.ultimo;
   document.getElementById('c-proximo').value=c.proximo;
   document.getElementById('c-visitas').value=c.visitas;
+  document.getElementById('c-nombre-err').classList.remove('show');
   document.getElementById('clientaDelBtn').style.display=i>=0?'':'none';
   document.getElementById('modalClienta').classList.add('open');
 }
@@ -526,32 +597,40 @@ document.getElementById('clientaSaveBtn').onclick=function(){
     proximo:document.getElementById('c-proximo').value,
     visitas:parseInt(document.getElementById('c-visitas').value)||0,
   };
-  if(!obj.nombre)return;
+  if(!obj.nombre){document.getElementById('c-nombre-err').classList.add('show');return;}
   if(editClientaIdx>=0)clientas[editClientaIdx]=obj;else clientas.push(obj);
   sto('est_clientas',clientas);renderClientas();closeModal('modalClienta');
+  toast('Clienta guardada');
 };
 document.getElementById('clientaDelBtn').onclick=function(){
   if(editClientaIdx>=0&&confirm('¿Eliminar esta clienta?')){
     clientas.splice(editClientaIdx,1);sto('est_clientas',clientas);renderClientas();closeModal('modalClienta');
+    toast('Clienta eliminada');
   }
 };
-
 // ── SERVICIOS ─────────────────────────────────────────────
 const catClass={'Corte':'sc-corte','Color':'sc-color','Tratamiento':'sc-tratamiento','Manicura':'sc-manicura','Peinado':'sc-peinado'};
+function formatoPrecio(v){
+  const num=String(v).replace(/[^\d]/g,'');
+  if(!num)return v;
+  return '$'+Number(num).toLocaleString('es-AR');
+}
 function renderServicios(){
   const g=document.getElementById('serviciosGrid');
-  if(!servicios.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">No hay servicios cargados en el catálogo</div>';return;}
-  g.innerHTML=servicios.map((s,i)=>`
-    <div class="servicio-card" onclick="abrirModalServicio(${i})">
-      <span class="servicio-cat ${catClass[s.cat]||'sc-corte'}">${esc(s.cat)}</span>
-      <div class="servicio-nombre">${esc(s.nombre)}</div>
-      <div class="servicio-footer">
-        <div class="servicio-precio">${esc(s.precio)}</div>
-        <div class="servicio-dur">${esc(s.dur)}</div>
-      </div>
-    </div>`).join('');
+  if(!servicios.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--text-muted);font-size:.8rem;">No hay servicios cargados en el catálogo</div>';}
+  else{
+    g.innerHTML=servicios.map((s,i)=>`
+      <div class="servicio-card" onclick="abrirModalServicio(${i})">
+        <span class="servicio-cat ${catClass[s.cat]||'sc-corte'}">${esc(s.cat)}</span>
+        <div class="servicio-nombre">${esc(s.nombre)}</div>
+        <div class="servicio-footer">
+          <div class="servicio-precio">${esc(s.precio)}</div>
+          <div class="servicio-dur">${esc(s.dur)}</div>
+        </div>
+      </div>`).join('');
+  }
+  document.getElementById('dl-servicios').innerHTML=servicios.map(s=>`<option value="${esc(s.nombre)}">`).join('');
 }
-
 let editServicioIdx=null;
 function abrirModalServicio(i){
   editServicioIdx=i;
@@ -560,45 +639,79 @@ function abrirModalServicio(i){
   document.getElementById('s-nombre').value=s.nombre;
   document.getElementById('s-cat').value=s.cat;
   document.getElementById('s-precio').value=s.precio;
-  document.getElementById('s-dur').value=s.dur;
+  document.getElementById('s-dur').value=String(s.dur||'').replace(/[^\d]/g,'');
+  document.getElementById('s-nombre-err').classList.remove('show');
   document.getElementById('servicioDelBtn').style.display=i>=0?'':'none';
   document.getElementById('modalServicio').classList.add('open');
 }
 document.getElementById('servicioSaveBtn').onclick=function(){
+  const durVal=document.getElementById('s-dur').value.trim();
   const obj={
     nombre:document.getElementById('s-nombre').value.trim(),
     cat:document.getElementById('s-cat').value,
-    precio:document.getElementById('s-precio').value.trim(),
-    dur:document.getElementById('s-dur').value.trim(),
+    precio:formatoPrecio(document.getElementById('s-precio').value.trim()),
+    dur:durVal?durVal+' min':'',
   };
-  if(!obj.nombre)return;
+  if(!obj.nombre){document.getElementById('s-nombre-err').classList.add('show');return;}
   if(editServicioIdx>=0)servicios[editServicioIdx]=obj;else servicios.push(obj);
   sto('est_servicios',servicios);renderServicios();closeModal('modalServicio');
+  toast('Servicio guardado');
 };
 document.getElementById('servicioDelBtn').onclick=function(){
   if(editServicioIdx>=0&&confirm('¿Eliminar este servicio?')){
     servicios.splice(editServicioIdx,1);sto('est_servicios',servicios);renderServicios();closeModal('modalServicio');
+    toast('Servicio eliminado');
   }
 };
-
 // ── PROFESIONALES ─────────────────────────────────────────────
 function renderProfesionales(){
   const g=document.getElementById('profGrid');
-  if(!profesionales.length){g.innerHTML='<div style="grid-column:1/-1;padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay profesionales cargadas en el sistema</div>';return;}
-  g.innerHTML=profesionales.map(p=>{
-    const iniciales=p.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-    const turnosHoy=turnos.filter(t=>t.prof===p.nombre.split(' ')[0]||t.prof===p.nombre).length;
-    return `<div class="prof-card">
-      <div class="prof-avatar">${iniciales}</div>
-      <div class="prof-info">
-        <div class="prof-nombre">${esc(p.nombre)}</div>
-        <div class="prof-esp">${esc(p.esp)}</div>
-      </div>
-      <div class="prof-num">${turnosHoy}</div>
-    </div>`;
-  }).join('');
+  const turnosDelDia=turnos.filter(t=>t.fecha===fechaSeleccionada);
+  if(!profesionales.length){g.innerHTML='<div style="grid-column:1/-1;padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay profesionales cargadas en el sistema</div>';}
+  else{
+    g.innerHTML=profesionales.map((p,i)=>{
+      const iniciales=p.nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+      const primerNombre=p.nombre.split(' ')[0];
+      const turnosHoy=turnosDelDia.filter(t=>t.prof===primerNombre||t.prof===p.nombre).length;
+      return `<div class="prof-card" onclick="abrirModalProf(${i})">
+        <div class="prof-avatar">${iniciales}</div>
+        <div class="prof-info">
+          <div class="prof-nombre">${esc(p.nombre)}</div>
+          <div class="prof-esp">${esc(p.esp)}</div>
+        </div>
+        <div class="prof-num">${turnosHoy}</div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('dl-profesionales').innerHTML=profesionales.map(p=>`<option value="${esc(p.nombre.split(' ')[0])}">`).join('');
 }
-
+let editProfIdx=null;
+function abrirModalProf(i){
+  editProfIdx=i;
+  const p=i>=0?profesionales[i]:{nombre:'',esp:''};
+  document.getElementById('modalProfTitulo').textContent=i>=0?'Editar profesional':'Nueva profesional';
+  document.getElementById('p-nombre').value=p.nombre;
+  document.getElementById('p-esp').value=p.esp;
+  document.getElementById('p-nombre-err').classList.remove('show');
+  document.getElementById('profDelBtn').style.display=i>=0?'':'none';
+  document.getElementById('modalProf').classList.add('open');
+}
+document.getElementById('profSaveBtn').onclick=function(){
+  const obj={
+    nombre:document.getElementById('p-nombre').value.trim(),
+    esp:document.getElementById('p-esp').value.trim(),
+  };
+  if(!obj.nombre){document.getElementById('p-nombre-err').classList.add('show');return;}
+  if(editProfIdx>=0)profesionales[editProfIdx]=obj;else profesionales.push(obj);
+  sto('est_prof',profesionales);renderProfesionales();closeModal('modalProf');
+  toast('Profesional guardada');
+};
+document.getElementById('profDelBtn').onclick=function(){
+  if(editProfIdx>=0&&confirm('¿Eliminar esta profesional?')){
+    profesionales.splice(editProfIdx,1);sto('est_prof',profesionales);renderProfesionales();closeModal('modalProf');
+    toast('Profesional eliminada');
+  }
+};
 // ── STOCK ─────────────────────────────────────────────
 function renderStock(){
   const g=document.getElementById('stockList');
@@ -617,7 +730,6 @@ function renderStock(){
     </div>`;
   }).join('');
 }
-
 let editStockIdx=null;
 function abrirModalStock(i){
   editStockIdx=i;
@@ -627,6 +739,7 @@ function abrirModalStock(i){
   document.getElementById('st-cat').value=s.cat;
   document.getElementById('st-cant').value=s.cant;
   document.getElementById('st-min').value=s.min;
+  document.getElementById('st-nombre-err').classList.remove('show');
   document.getElementById('stockDelBtn').style.display=i>=0?'':'none';
   document.getElementById('modalStock').classList.add('open');
 }
@@ -637,16 +750,17 @@ document.getElementById('stockSaveBtn').onclick=function(){
     cant:parseInt(document.getElementById('st-cant').value)||0,
     min:parseInt(document.getElementById('st-min').value)||0,
   };
-  if(!obj.nombre)return;
+  if(!obj.nombre){document.getElementById('st-nombre-err').classList.add('show');return;}
   if(editStockIdx>=0)stock[editStockIdx]=obj;else stock.push(obj);
   sto('est_stock',stock);renderStock();renderSidebarKpis();closeModal('modalStock');
+  toast('Producto guardado');
 };
 document.getElementById('stockDelBtn').onclick=function(){
   if(editStockIdx>=0&&confirm('¿Eliminar este producto?')){
     stock.splice(editStockIdx,1);sto('est_stock',stock);renderStock();renderSidebarKpis();closeModal('modalStock');
+    toast('Producto eliminado');
   }
 };
-
 // ── ALERTAS ─────────────────────────────────────────────
 const alertaIcon={critico:'🚨',atencion:'⚠️',info:'ℹ️'};
 function renderAlertas(){
@@ -662,7 +776,42 @@ function renderAlertas(){
       <span class="alerta-nivel an-${a.nivel}">${a.nivel}</span>
     </div>`).join('');
 }
-
+// ── BACKUP / RESTORE (mientras no haya un backend, esto evita perder los datos) ──
+function exportarDatos(){
+  const data={turnos,clientas,servicios,profesionales,stock,alertas,exportadoEl:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='panel-esteticas-backup-'+hoyISO()+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+  toast('Backup descargado');
+}
+function importarDatos(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const data=JSON.parse(e.target.result);
+      if(!confirm('Esto va a reemplazar los datos actuales del panel por los del archivo. ¿Continuar?'))return;
+      if(Array.isArray(data.turnos))turnos=data.turnos.map(t=>t.fecha?t:Object.assign({},t,{fecha:HOY}));
+      if(Array.isArray(data.clientas))clientas=data.clientas;
+      if(Array.isArray(data.servicios))servicios=data.servicios;
+      if(Array.isArray(data.profesionales))profesionales=data.profesionales;
+      if(Array.isArray(data.stock))stock=data.stock;
+      if(Array.isArray(data.alertas))alertas=data.alertas;
+      sto('est_turnos',turnos);sto('est_clientas',clientas);sto('est_servicios',servicios);
+      sto('est_prof',profesionales);sto('est_stock',stock);sto('est_alertas',alertas);
+      renderAll();
+      toast('Datos importados correctamente');
+    }catch(err){
+      alert('El archivo no es un backup válido de este panel.');
+    }
+  };
+  reader.readAsText(file);
+  input.value='';
+}
 // ── NAVEGACIÓN ────────────────────────────────────────────
 function navTo(secId, el){
   const sec=document.getElementById(secId);
@@ -670,21 +819,25 @@ function navTo(secId, el){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   if(el) el.classList.add('active');
 }
-
 // ── MODAL HELPER ───────────────────────────────────────
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.moverlay').forEach(m=>{
   m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 });
-
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.querySelectorAll('.moverlay.open').forEach(m=>m.classList.remove('open'));
+});
 // ── INIT ─────────────────────────────────────────────
-renderSidebarKpis();
-renderTurnos();
-renderClientas();
-renderServicios();
-renderProfesionales();
-renderStock();
-renderAlertas();
+function renderAll(){
+  renderSidebarKpis();
+  renderTurnos();
+  renderClientas();
+  renderServicios();
+  renderProfesionales();
+  renderStock();
+  renderAlertas();
+}
+renderAll();
 </script>
 </body>
 </html>
