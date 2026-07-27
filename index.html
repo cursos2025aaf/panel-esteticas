@@ -23,9 +23,7 @@
   --text-muted:#94a3b8;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-/* ── LAYOUT PRINCIPAL ── */
 .app-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
-/* ── SIDEBAR ── */
 .sidebar{background:var(--navy);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
 .sidebar-logo{padding:20px 18px 16px;border-bottom:1px solid rgba(255,255,255,.1);}
 .logo-text{font-size:1.1rem;font-weight:900;line-height:1;}
@@ -50,25 +48,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .backup-lbl{font-size:.56rem;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.4);margin-bottom:2px;}
 .backup-btn{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:7px 10px;font-size:.68rem;font-weight:600;cursor:pointer;text-align:left;}
 .backup-btn:hover{background:rgba(255,255,255,.16);}
-/* ── CONTENIDO PRINCIPAL ── */
+.sync-badge{font-size:.6rem;padding:5px 10px;border-radius:6px;background:rgba(22,163,74,.18);color:#4ade80;font-weight:700;}
+.sync-badge.off{background:rgba(220,38,38,.18);color:#f87171;}
 .main-content{padding:20px 24px;overflow-y:auto;}
 .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap;}
 .page-title{font-size:1.1rem;font-weight:800;color:var(--text);}
 .page-sub{font-size:.72rem;color:var(--text-muted);margin-top:2px;}
 .btn-primary{background:var(--rosa);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.75rem;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap;}
 .btn-primary:hover{background:#be185d;}
-/* ── SECCIÓN TITLE ── */
 .stitle{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px;}
 .stitle::after{content:'';flex:1;height:1px;background:var(--border);}
 .stitle:first-child{margin-top:0;}
-/* ── NAV DE FECHA (AGENDA) ── */
 .date-nav{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
 .date-btn{background:var(--white);border:1px solid var(--border);border-radius:6px;width:28px;height:28px;font-size:.8rem;font-weight:700;color:var(--text-soft);cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .date-btn:hover{background:#f1f5f9;}
 .date-hoy{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.68rem;font-weight:700;color:var(--rosa);cursor:pointer;}
 .date-hoy:hover{background:var(--verde-light);}
 .date-label{font-size:.78rem;font-weight:700;color:var(--text);text-transform:capitalize;}
-/* ── AGENDA / TURNOS ── */
 .turnos-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
 .turno-item{display:grid;grid-template-columns:70px 1.6fr 1.4fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
 .turno-item:last-child{border-bottom:none;}
@@ -80,15 +76,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .turno-tel{font-size:.62rem;color:var(--text-muted);margin-top:1px;}
 .turno-servicio{font-size:.72rem;color:var(--text-soft);}
 .turno-prof{font-size:.72rem;color:var(--text-soft);}
-/* ── BADGES ESTADO ── */
 .badge{display:inline-block;font-size:.55rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:.4px;text-transform:uppercase;}
 .b-confirmado{background:#dcfce7;color:#15803d;}
 .b-pendiente{background:#fef9c3;color:#854d0e;}
 .b-cancelado{background:#fee2e2;color:#dc2626;}
 .b-completado{background:#dbeafe;color:#1d4ed8;}
-/* ── DOS COLUMNAS ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-/* ── CLIENTAS ── */
 .clientas-toolbar{display:flex;gap:8px;margin-bottom:10px;}
 .buscador{flex:1;font-size:.75rem;border:1px solid var(--border);border-radius:8px;padding:8px 12px;outline:none;background:var(--white);}
 .buscador:focus{border-color:var(--rosa);}
@@ -102,7 +95,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .clienta-body{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
 .clienta-row{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-top:4px;}
 .clienta-row span{font-weight:700;color:var(--text);}
-/* ── SERVICIOS ── */
 .servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
 .servicio-card{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;border:1px solid var(--border);transition:transform .15s,box-shadow .15s;}
 .servicio-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
@@ -116,7 +108,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .servicio-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
 .servicio-precio{font-size:1rem;font-weight:800;color:var(--verde-dark);}
 .servicio-dur{font-size:.62rem;color:var(--text-muted);}
-/* ── PROFESIONALES ── */
 .prof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
 .prof-card{background:var(--white);border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid var(--border);display:flex;align-items:center;gap:12px;cursor:pointer;}
 .prof-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0;}
@@ -124,7 +115,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .prof-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
 .prof-esp{font-size:.62rem;color:var(--text-muted);}
 .prof-num{font-size:1.2rem;font-weight:800;color:var(--rosa);}
-/* ── STOCK ── */
 .stock-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
 .stock-item{display:grid;grid-template-columns:2fr 1fr 1fr 90px;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
 .stock-item:hover{background:#f8fafc;}
@@ -134,7 +124,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .stock-nombre{font-size:.75rem;font-weight:700;color:var(--text);}
 .stock-cat{font-size:.62rem;color:var(--text-muted);}
 .stock-cant{font-size:.75rem;font-weight:700;text-align:center;}
-/* ── ALERTAS ── */
 .alertas-wrap{background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--border);}
 .alerta-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
 .alerta-item:last-child{border-bottom:none;}
@@ -150,10 +139,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .an-critico{background:#fee2e2;color:#dc2626;}
 .an-atencion{background:#fef9c3;color:#854d0e;}
 .an-info{background:#dbeafe;color:#1d4ed8;}
-/* ── BOTONES ── */
 .btn-add{background:var(--bg);border:1px dashed #cbd5e1;border-radius:6px;padding:5px 12px;font-size:.72rem;font-weight:600;color:var(--gris);cursor:pointer;transition:background .15s;}
 .btn-add:hover{background:var(--border);}
-/* ── MODAL ── */
 .moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:20px;}
 .moverlay.open{display:flex;}
 .modal{background:#fff;border-radius:16px;padding:24px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto;}
@@ -168,17 +155,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mbtn-save:hover{background:#be185d;}
 .mbtn-cancel{background:#f1f5f9;color:var(--gris);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
 .mbtn-del{background:#fee2e2;color:var(--rojo);border:none;border-radius:8px;padding:10px 16px;font-size:.82rem;cursor:pointer;}
-/* ── TOAST ── */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:12px 18px;border-radius:8px;font-size:.78rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:900;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateY(0);}
-/* ── RESPONSIVE ── */
 @media(max-width:1024px){.app-layout{grid-template-columns:1fr;}.sidebar{height:auto;position:relative;}.sidebar-kpis{flex-direction:row;flex-wrap:wrap;}.kpi-item{flex:1;min-width:120px;}}
 @media(max-width:600px){.clientas-grid,.servicios-grid{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.turno-item,.turno-item-header{grid-template-columns:1fr 1fr;}.stock-item,.stock-item-header{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 <div class="app-layout">
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <div class="logo-text"><span class="li">i</span><span class="la">AGENTES</span><span class="lt">.TECH</span></div>
@@ -195,22 +179,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="nav-item" onclick="navTo('secAlertas',this)">🔔 Alertas</div>
     </div>
     <div class="sidebar-backup">
-      <div class="backup-lbl">Copia de seguridad</div>
+      <div class="backup-lbl">Estado de conexión</div>
+      <div class="sync-badge" id="syncBadge">Conectando…</div>
+      <div class="backup-lbl" style="margin-top:10px;">Copia de seguridad (resto del panel)</div>
       <button class="backup-btn" onclick="exportarDatos()">⬇️ Exportar datos</button>
       <button class="backup-btn" onclick="document.getElementById('importFile').click()">⬆️ Importar datos</button>
       <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importarDatos(this)">
     </div>
   </aside>
-  <!-- CONTENIDO -->
   <main class="main-content">
     <div class="page-header">
       <div>
         <div class="page-title">Agenda</div>
-        <div class="page-sub">Gestión de turnos, clientas, servicios y stock</div>
+        <div class="page-sub">Los turnos se sincronizan en vivo con la Google Sheet del agente de WhatsApp</div>
       </div>
       <button class="btn-primary" onclick="abrirModalTurno(-1)">+ Nuevo turno</button>
     </div>
-    <!-- AGENDA -->
     <div id="secAgenda">
       <div class="stitle">Turnos</div>
       <div class="date-nav">
@@ -230,7 +214,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div id="turnosList"></div>
       </div>
     </div>
-    <!-- CLIENTAS -->
     <div id="secClientas">
       <div class="stitle" style="margin-top:24px;">Clientas</div>
       <div class="clientas-toolbar">
@@ -239,7 +222,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="clientas-grid" id="clientasGrid"></div>
       <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalClienta(-1)">+ Nueva clienta</button></div>
     </div>
-    <!-- DOS COLUMNAS: SERVICIOS / PROFESIONALES -->
     <div class="two-col">
       <div id="secServicios">
         <div class="stitle" style="margin-top:24px;">Servicios y tratamientos</div>
@@ -252,7 +234,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalProf(-1)">+ Nueva profesional</button></div>
       </div>
     </div>
-    <!-- STOCK -->
     <div id="secStock">
       <div class="stitle" style="margin-top:24px;">Stock de productos</div>
       <div class="stock-wrap">
@@ -266,14 +247,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <div style="margin-top:8px;"><button class="btn-add" onclick="abrirModalStock(-1)">+ Nuevo producto</button></div>
     </div>
-    <!-- ALERTAS -->
     <div id="secAlertas">
       <div class="stitle" style="margin-top:24px;">Alertas</div>
       <div class="alertas-wrap" id="alertasWrap"></div>
     </div>
   </main>
 </div>
-<!-- MODAL TURNO -->
 <div class="moverlay" id="modalTurno">
   <div class="modal">
     <h3 id="modalTurnoTitulo">Turno</h3>
@@ -283,6 +262,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <input type="text" id="t-clienta" placeholder="Nombre de la clienta" list="dl-clientas">
     <datalist id="dl-clientas"></datalist>
     <div class="field-error" id="t-clienta-err">La clienta y la hora son obligatorias.</div>
+    <label for="t-tel">Teléfono</label><input type="text" id="t-tel" placeholder="Ej: 11-4555-2233">
     <label for="t-servicio">Servicio</label>
     <input type="text" id="t-servicio" placeholder="Ej: Corte + color" list="dl-servicios">
     <datalist id="dl-servicios"></datalist>
@@ -298,12 +278,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </select>
     <div class="mactions">
       <button class="mbtn-save" id="turnoSaveBtn">Guardar</button>
-      <button class="mbtn-del" id="turnoDelBtn" style="display:none">Eliminar</button>
-      <button class="mbtn-cancel" onclick="closeModal('modalTurno')">Cancelar</button>
+      <button class="mbtn-del" id="turnoDelBtn" style="display:none">Cancelar turno</button>
+      <button class="mbtn-cancel" onclick="closeModal('modalTurno')">Cerrar</button>
     </div>
   </div>
 </div>
-<!-- MODAL CLIENTA -->
 <div class="moverlay" id="modalClienta">
   <div class="modal">
     <h3 id="modalClientaTitulo">Clienta</h3>
@@ -320,7 +299,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-<!-- MODAL SERVICIO -->
 <div class="moverlay" id="modalServicio">
   <div class="modal">
     <h3 id="modalServicioTitulo">Servicio</h3>
@@ -343,7 +321,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-<!-- MODAL STOCK -->
 <div class="moverlay" id="modalStock">
   <div class="modal">
     <h3 id="modalStockTitulo">Producto</h3>
@@ -359,7 +336,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 </div>
-<!-- MODAL PROFESIONAL -->
 <div class="moverlay" id="modalProf">
   <div class="modal">
     <h3 id="modalProfTitulo">Profesional</h3>
@@ -375,7 +351,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 <div class="toast" id="toast"></div>
 <script>
-// ── FECHA / UTILIDADES ─────────────────────────────────
+// ── CONEXIÓN A LA GOOGLE SHEET (agente + panel comparten esta API) ──
+const API_URL='https://script.google.com/macros/s/AKfycbxDQeOPUNNXIV2zEpe9Xn1Xs4mgRTX6oFhHbLgrq3-cj7w8dQ7A72yVPggk9KagLDNf/exec';
+
 const DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 function hoyISO(){
@@ -389,34 +367,23 @@ function fechaLegible(iso){
 }
 document.getElementById('fechaSidebar').textContent=fechaLegible(hoyISO());
 let fechaSeleccionada=hoyISO();
-// ── STORAGE ────────────────────────────────────────────
 function sto(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 function gto(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function toast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   clearTimeout(window._toastTimer);
   window._toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
 }
-// ── DATOS INICIALES (la fecha de los turnos de ejemplo se ajusta a "hoy" para que la demo siempre se vea completa) ──
-const HOY=hoyISO();
-const D_TURNOS=[
-  {fecha:HOY,hora:'09:00',clienta:'Mariana Soto',servicio:'Corte + brushing',prof:'Valentina',estado:'Confirmado'},
-  {fecha:HOY,hora:'10:00',clienta:'Lucía Fernández',servicio:'Color + tratamiento',prof:'Camila',estado:'Confirmado'},
-  {fecha:HOY,hora:'11:30',clienta:'Rocío Paredes',servicio:'Manicura semipermanente',prof:'Noelia',estado:'Pendiente'},
-  {fecha:HOY,hora:'13:00',clienta:'Florencia Díaz',servicio:'Corte de puntas',prof:'Valentina',estado:'Completado'},
-  {fecha:HOY,hora:'14:30',clienta:'Carla Medina',servicio:'Alisado + brushing',prof:'Camila',estado:'Confirmado'},
-  {fecha:HOY,hora:'16:00',clienta:'Agustina Vera',servicio:'Color + corte',prof:'Valentina',estado:'Pendiente'},
-  {fecha:HOY,hora:'17:30',clienta:'Daniela Acosta',servicio:'Manicura + pedicura',prof:'Noelia',estado:'Cancelado'},
-];
+function setSync(ok){
+  const b=document.getElementById('syncBadge');
+  b.textContent=ok?'● Conectado a la Sheet':'● Sin conexión';
+  b.className='sync-badge'+(ok?'':' off');
+}
+
 const D_CLIENTAS=[
-  {nombre:'Mariana Soto',tel:'11-4555-2233',ultimo:'Corte + brushing',proximo:HOY,visitas:14},
-  {nombre:'Lucía Fernández',tel:'11-6677-8899',ultimo:'Color + tratamiento',proximo:HOY,visitas:22},
-  {nombre:'Rocío Paredes',tel:'11-2345-6677',ultimo:'Manicura',proximo:HOY,visitas:8},
-  {nombre:'Florencia Díaz',tel:'11-9988-7766',ultimo:'Corte de puntas',proximo:'',visitas:5},
-  {nombre:'Carla Medina',tel:'11-3344-5566',ultimo:'Alisado',proximo:HOY,visitas:11},
-  {nombre:'Agustina Vera',tel:'11-7788-9900',ultimo:'Color',proximo:HOY,visitas:3},
+  {nombre:'Mariana Soto',tel:'11-4555-2233',ultimo:'Corte + brushing',proximo:'',visitas:14},
 ];
 const D_SERVICIOS=[
   {nombre:'Corte de cabello',cat:'Corte',precio:'$9.000',dur:'40 min'},
@@ -432,7 +399,6 @@ const D_PROFESIONALES=[
   {nombre:'Valentina Roca',esp:'Cortes y color'},
   {nombre:'Camila Ibáñez',esp:'Tratamientos'},
   {nombre:'Noelia Quiroga',esp:'Manicura y pedicura'},
-  {nombre:'Brenda Olmos',esp:'Peinados de eventos'},
 ];
 const D_STOCK=[
   {nombre:'Tintura rubio ceniza',cat:'Coloración',cant:3,min:5},
@@ -440,24 +406,48 @@ const D_STOCK=[
   {nombre:'Shampoo profesional',cat:'Higiene',cant:12,min:6},
   {nombre:'Ampollas de keratina',cat:'Tratamiento',cant:2,min:6},
   {nombre:'Esmalte semipermanente rojo',cat:'Manicura',cant:1,min:3},
-  {nombre:'Papel aluminio mechas',cat:'Insumos',cant:15,min:5},
 ];
 const D_ALERTAS=[
   {texto:'Stock crítico de ampollas de keratina',meta:'Quedan 2 unidades — mínimo recomendado: 6',nivel:'critico'},
   {texto:'Stock crítico de esmalte semipermanente rojo',meta:'Queda 1 unidad — mínimo recomendado: 3',nivel:'critico'},
-  {texto:'Tintura rubio ceniza por debajo del mínimo',meta:'Quedan 3 unidades — mínimo recomendado: 5',nivel:'atencion'},
-  {texto:'Turno sin confirmar a último momento',meta:'Agustina Vera — 16:00 — Color + corte',nivel:'atencion'},
-  {texto:'Cancelación de turno hoy',meta:'Daniela Acosta — 17:30 — Manicura + pedicura',nivel:'info'},
 ];
-let turnos=gto('est_turnos',D_TURNOS);
+
+let turnos=[]; // se cargan siempre desde la Google Sheet, no desde localStorage
 let clientas=gto('est_clientas',D_CLIENTAS);
 let servicios=gto('est_servicios',D_SERVICIOS);
 let profesionales=gto('est_prof',D_PROFESIONALES);
 let stock=gto('est_stock',D_STOCK);
 let alertas=gto('est_alertas',D_ALERTAS);
-// migración: turnos guardados antes de tener "fecha" se asumen de hoy
-turnos=turnos.map(t=>t.fecha?t:Object.assign({},t,{fecha:HOY}));
-// ── SIDEBAR KPIs ─────────────────────────────────────────────
+
+// ── SINCRONIZACIÓN CON LA SHEET ──
+async function cargarTurnos(){
+  try{
+    const r=await fetch(API_URL+'?accion=listar');
+    const data=await r.json();
+    turnos=(data.turnos||[]).map(t=>({
+      fila:t.fila,
+      fecha:t.fecha||hoyISO(),
+      hora:t.hora||'',
+      clienta:t.nombre||'',
+      tel:t.telefono||'',
+      servicio:t.servicio||'',
+      prof:t.profesional||'',
+      estado:t.estado||'Pendiente'
+    }));
+    setSync(true);
+  }catch(err){
+    setSync(false);
+    toast('No se pudo conectar con la Sheet. Revisá tu conexión.');
+  }
+  renderTurnos();renderSidebarKpis();renderProfesionales();
+}
+async function guardarTurnoAPI(params){
+  const url=new URL(API_URL);
+  Object.keys(params).forEach(k=>{ if(params[k]!==undefined && params[k]!==null) url.searchParams.set(k,params[k]); });
+  const r=await fetch(url.toString());
+  return r.json();
+}
+
 function renderSidebarKpis(){
   const turnosDelDia=turnos.filter(t=>t.fecha===fechaSeleccionada);
   const confirmados=turnosDelDia.filter(t=>t.estado==='Confirmado').length;
@@ -476,7 +466,6 @@ function renderSidebarKpis(){
       <div class="kpi-sub">${i.sub}</div>
     </div>`).join('');
 }
-// ── NAVEGACIÓN DE FECHA ─────────────────────────────────
 function cambiarDia(delta){
   const [y,m,d]=fechaSeleccionada.split('-').map(Number);
   const dt=new Date(y,m-1,d);
@@ -488,7 +477,6 @@ function irHoy(){
   fechaSeleccionada=hoyISO();
   renderTurnos();renderSidebarKpis();renderProfesionales();
 }
-// ── TURNOS ─────────────────────────────────────────────
 const badgeClassTurno={'Confirmado':'b-confirmado','Pendiente':'b-pendiente','Completado':'b-completado','Cancelado':'b-cancelado'};
 function renderTurnos(){
   const lbl=document.getElementById('fechaAgendaLabel');
@@ -504,7 +492,7 @@ function renderTurnos(){
       <div class="turno-hora">${esc(t.hora)}</div>
       <div class="turno-clienta">${esc(t.clienta)}</div>
       <div class="turno-servicio">${esc(t.servicio)}</div>
-      <div class="turno-prof">${esc(t.prof)}</div>
+      <div class="turno-prof">${esc(t.prof)||'<span style=\"color:#cbd5e1\">Sin asignar</span>'}</div>
       <div style="text-align:center;"><span class="badge ${badgeClassTurno[t.estado]||'b-pendiente'}">${esc(t.estado)}</span></div>
     </div>`;
   }).join('');
@@ -512,11 +500,12 @@ function renderTurnos(){
 let editTurnoIdx=null;
 function abrirModalTurno(i){
   editTurnoIdx=i;
-  const t=i>=0?turnos[i]:{fecha:fechaSeleccionada,hora:'',clienta:'',servicio:'',prof:'',estado:'Pendiente'};
+  const t=i>=0?turnos[i]:{fecha:fechaSeleccionada,hora:'',clienta:'',tel:'',servicio:'',prof:'',estado:'Pendiente'};
   document.getElementById('modalTurnoTitulo').textContent=i>=0?'Editar turno':'Nuevo turno';
   document.getElementById('t-fecha').value=t.fecha;
   document.getElementById('t-hora').value=t.hora;
   document.getElementById('t-clienta').value=t.clienta;
+  document.getElementById('t-tel').value=t.tel||'';
   document.getElementById('t-servicio').value=t.servicio;
   document.getElementById('t-prof').value=t.prof;
   document.getElementById('t-estado').value=t.estado;
@@ -524,29 +513,41 @@ function abrirModalTurno(i){
   document.getElementById('turnoDelBtn').style.display=i>=0?'':'none';
   document.getElementById('modalTurno').classList.add('open');
 }
-document.getElementById('turnoSaveBtn').onclick=function(){
+document.getElementById('turnoSaveBtn').onclick=async function(){
   const obj={
     fecha:document.getElementById('t-fecha').value||fechaSeleccionada,
     hora:document.getElementById('t-hora').value,
-    clienta:document.getElementById('t-clienta').value.trim(),
+    nombre:document.getElementById('t-clienta').value.trim(),
+    telefono:document.getElementById('t-tel').value.trim(),
     servicio:document.getElementById('t-servicio').value.trim(),
-    prof:document.getElementById('t-prof').value.trim(),
+    profesional:document.getElementById('t-prof').value.trim(),
     estado:document.getElementById('t-estado').value,
   };
-  if(!obj.clienta||!obj.hora){document.getElementById('t-clienta-err').classList.add('show');return;}
-  if(editTurnoIdx>=0)turnos[editTurnoIdx]=obj;else turnos.push(obj);
-  sto('est_turnos',turnos);
-  fechaSeleccionada=obj.fecha;
-  renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
-  toast('Turno guardado');
+  if(!obj.nombre||!obj.hora){document.getElementById('t-clienta-err').classList.add('show');return;}
+  this.disabled=true;this.textContent='Guardando...';
+  try{
+    if(editTurnoIdx>=0){
+      await guardarTurnoAPI(Object.assign({accion:'actualizar',fila:turnos[editTurnoIdx].fila},obj));
+    }else{
+      await guardarTurnoAPI(Object.assign({accion:'crear'},obj));
+    }
+    fechaSeleccionada=obj.fecha;
+    await cargarTurnos();
+    closeModal('modalTurno');
+    toast('Turno guardado en la Sheet');
+  }catch(err){
+    toast('No se pudo guardar. Revisá tu conexión e intentá de nuevo.');
+  }
+  this.disabled=false;this.textContent='Guardar';
 };
-document.getElementById('turnoDelBtn').onclick=function(){
-  if(editTurnoIdx>=0&&confirm('¿Eliminar este turno?')){
-    turnos.splice(editTurnoIdx,1);sto('est_turnos',turnos);renderTurnos();renderSidebarKpis();renderProfesionales();closeModal('modalTurno');
-    toast('Turno eliminado');
+document.getElementById('turnoDelBtn').onclick=async function(){
+  if(editTurnoIdx>=0&&confirm('¿Marcar este turno como Cancelado? (no se borra de la Sheet, queda como historial)')){
+    await guardarTurnoAPI({accion:'actualizar',fila:turnos[editTurnoIdx].fila,estado:'Cancelado'});
+    await cargarTurnos();
+    closeModal('modalTurno');
+    toast('Turno cancelado');
   }
 };
-// ── CLIENTAS ─────────────────────────────────────────────
 function renderClientas(){
   const g=document.getElementById('clientasGrid');
   const q=(document.getElementById('buscadorClientas').value||'').trim().toLowerCase();
@@ -608,7 +609,6 @@ document.getElementById('clientaDelBtn').onclick=function(){
     toast('Clienta eliminada');
   }
 };
-// ── SERVICIOS ─────────────────────────────────────────────
 const catClass={'Corte':'sc-corte','Color':'sc-color','Tratamiento':'sc-tratamiento','Manicura':'sc-manicura','Peinado':'sc-peinado'};
 function formatoPrecio(v){
   const num=String(v).replace(/[^\d]/g,'');
@@ -663,7 +663,6 @@ document.getElementById('servicioDelBtn').onclick=function(){
     toast('Servicio eliminado');
   }
 };
-// ── PROFESIONALES ─────────────────────────────────────────────
 function renderProfesionales(){
   const g=document.getElementById('profGrid');
   const turnosDelDia=turnos.filter(t=>t.fecha===fechaSeleccionada);
@@ -712,7 +711,6 @@ document.getElementById('profDelBtn').onclick=function(){
     toast('Profesional eliminada');
   }
 };
-// ── STOCK ─────────────────────────────────────────────
 function renderStock(){
   const g=document.getElementById('stockList');
   if(!stock.length){g.innerHTML='<div style="padding:18px;text-align:center;font-size:.75rem;color:var(--text-muted);">No hay productos cargados en el stock</div>';return;}
@@ -761,7 +759,6 @@ document.getElementById('stockDelBtn').onclick=function(){
     toast('Producto eliminado');
   }
 };
-// ── ALERTAS ─────────────────────────────────────────────
 const alertaIcon={critico:'🚨',atencion:'⚠️',info:'ℹ️'};
 function renderAlertas(){
   const w=document.getElementById('alertasWrap');
@@ -776,9 +773,8 @@ function renderAlertas(){
       <span class="alerta-nivel an-${a.nivel}">${a.nivel}</span>
     </div>`).join('');
 }
-// ── BACKUP / RESTORE (mientras no haya un backend, esto evita perder los datos) ──
 function exportarDatos(){
-  const data={turnos,clientas,servicios,profesionales,stock,alertas,exportadoEl:new Date().toISOString()};
+  const data={clientas,servicios,profesionales,stock,alertas,exportadoEl:new Date().toISOString(),nota:'Los turnos NO se incluyen: viven en la Google Sheet, no en este navegador.'};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
@@ -794,14 +790,13 @@ function importarDatos(input){
   reader.onload=function(e){
     try{
       const data=JSON.parse(e.target.result);
-      if(!confirm('Esto va a reemplazar los datos actuales del panel por los del archivo. ¿Continuar?'))return;
-      if(Array.isArray(data.turnos))turnos=data.turnos.map(t=>t.fecha?t:Object.assign({},t,{fecha:HOY}));
+      if(!confirm('Esto va a reemplazar clientas, servicios, profesionales, stock y alertas actuales por los del archivo (los turnos no se tocan). ¿Continuar?'))return;
       if(Array.isArray(data.clientas))clientas=data.clientas;
       if(Array.isArray(data.servicios))servicios=data.servicios;
       if(Array.isArray(data.profesionales))profesionales=data.profesionales;
       if(Array.isArray(data.stock))stock=data.stock;
       if(Array.isArray(data.alertas))alertas=data.alertas;
-      sto('est_turnos',turnos);sto('est_clientas',clientas);sto('est_servicios',servicios);
+      sto('est_clientas',clientas);sto('est_servicios',servicios);
       sto('est_prof',profesionales);sto('est_stock',stock);sto('est_alertas',alertas);
       renderAll();
       toast('Datos importados correctamente');
@@ -812,14 +807,12 @@ function importarDatos(input){
   reader.readAsText(file);
   input.value='';
 }
-// ── NAVEGACIÓN ────────────────────────────────────────────
 function navTo(secId, el){
   const sec=document.getElementById(secId);
   if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   if(el) el.classList.add('active');
 }
-// ── MODAL HELPER ───────────────────────────────────────
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.moverlay').forEach(m=>{
   m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
@@ -827,7 +820,6 @@ document.querySelectorAll('.moverlay').forEach(m=>{
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape')document.querySelectorAll('.moverlay.open').forEach(m=>m.classList.remove('open'));
 });
-// ── INIT ─────────────────────────────────────────────
 function renderAll(){
   renderSidebarKpis();
   renderTurnos();
@@ -837,7 +829,12 @@ function renderAll(){
   renderStock();
   renderAlertas();
 }
-renderAll();
+renderClientas();
+renderServicios();
+renderStock();
+renderAlertas();
+cargarTurnos();
+setInterval(cargarTurnos,30000); // refresca turnos cada 30s para ver reservas nuevas del agente
 </script>
 </body>
 </html>
